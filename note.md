@@ -67,3 +67,5 @@ permanent: true,
 ]
 }
 }`
+
+- Se hizo la migracion de la carpeta 'src' del proyecto en react, dentro de esta carpeta se renombro la carpeta pages por templates, para asi evitar conflictos. La carpeta original del proyecto nextjs se renombro por src2
