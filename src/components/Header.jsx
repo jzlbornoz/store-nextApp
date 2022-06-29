@@ -12,10 +12,10 @@ const Header = () => {
 
 	return (
 		<>
-			<nav className={style.Nav}>
-				<img src={menu} alt="menu" className="menu" />
-				<div className="navbar-left">
-					<img src={logo} alt="logo" className="nav-logo" />
+			<nav className={style.nav}>
+				<img src={menu} alt="menu" className={style.menu} />
+				<div className={style['navbar-left']}>
+					<img src={logo} alt="logo" className={style['nav-logo']} />
 					<ul>
 						<li>
 							<a href="/">All</a>
@@ -37,16 +37,16 @@ const Header = () => {
 						</li>
 					</ul>
 				</div>
-				<div className="navbar-right">
+				<div className={style['navbar-right']}>
 					<ul>
-						<li className="more-clickable-area navbar-email pointer" onClick={() => toggleMenu()}>
+						<li className={style['more-clickable-area navbar-email pointer']} onClick={() => toggleMenu()}>
 							platzi@example.com
 						</li>
 						<li
-							className="navbar-shopping-cart"
+							className={style['navbar-shopping-cart']}
 							onClick={() => toggleOrder()}
 						>
-							<img className="more-clickable-area pointer" src={shoppingCart} alt="shopping cart" />
+							<img className={style['more-clickable-area pointer']} src={shoppingCart} alt="shopping cart" />
 							{state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
 						</li>
 					</ul>
