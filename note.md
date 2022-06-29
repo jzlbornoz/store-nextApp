@@ -47,4 +47,23 @@ module.exports = {
 }
 `
 - install de dependencies: 
-`npm i prettier eslint-plugin-prettier eslint-plugin-jsx-a11y eslint-config-prettier eslint-config-next`
+`npm i prettier eslint-plugin-prettier eslint-plugin-jsx-a11y eslint-config-prettier eslint-config-next`.
+- add the configure in 'next.config.js'.
+`
+module.exports = {
+reactStrictMode: true,
+env: {
+customKey: ‘customValue’,
+},
+basePath: ‘/dist’,
+compress: true,
+async redirects() {
+return [
+{
+source: ‘/hola’,
+destination: ‘https://gndx.dev’,
+permanent: true,
+}
+]
+}
+}`
