@@ -68,4 +68,21 @@ permanent: true,
 }
 }`
 
-- Se hizo la migracion de la carpeta 'src' del proyecto en react, dentro de esta carpeta se renombro la carpeta pages por templates, para asi evitar conflictos. La carpeta original del proyecto nextjs se renombro por src2
+- Se hizo la migracion de la carpeta 'src' del proyecto en react, dentro de esta carpeta se renombro la carpeta pages por templates, para asi evitar conflictos. La carpeta original del proyecto nextjs se renombro por src2.
+- Se integraron los elementos de src2 en src.
+- se elimina el index.js 
+- en el index.js de pages se agrega el codigo inicial.
+`
+import React from 'react';
+import Header from '@components/Header';
+
+export default function Home() {
+  return (
+    <>
+    <Header />
+    </>
+  )
+}
+
+`
+- se agrega el alias en jsconfig.json.

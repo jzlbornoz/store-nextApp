@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import Menu from '@components/Menu';
-import MyOrder from '../containers/MyOrder';
+import MyOrder from '@containers/MyOrder';
 import menu from '@icons/icon_menu.svg';
 import logo from '@logos/logo_yard_sale.svg';
-import AppContext from '../context/AppContext';
+import AppContext from '@context/AppContext';
 import shoppingCart from '@icons/icon_shopping_cart.svg';
 import '@styles/Header.scss';
 
