@@ -86,3 +86,12 @@ export default function Home() {
 
 `
 - se agrega el alias en jsconfig.json.
+- instalar sass : `npm install sass`.
+- se cambian los stilos del header a .module.
+- se modifican las variables.
+- elimina la mayoria de next.config.js
+`
+module.exports = {
+  reactStrictMode: true,
+}
+`
