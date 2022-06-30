@@ -113,3 +113,4 @@ function MyApp({ Component, pageProps }) {
 export default MyApp
 
 `
+- Para que las imagenes funcionen correctamente tenemos que llamar a 'next/image' y usarlo en vez de la etiqueta img

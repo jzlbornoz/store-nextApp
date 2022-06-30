@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Image from "next/image";
 import Menu from '@components/Menu';
 import MyOrder from '@containers/MyOrder';
 import menu from '@icons/icon_menu.svg';
@@ -13,9 +14,9 @@ const Header = () => {
 	return (
 		<>
 			<nav className={style.nav}>
-				<img src={menu} alt="menu" className={style.menu} />
+				<Image src={menu} alt="menu" className={style.menu} />
 				<div className={style['navbar-left']}>
-					<img src={logo} alt="logo" className={style['nav-logo']} />
+					<Image src={logo} alt="logo" className={style['nav-logo']} />
 					<ul>
 						<li>
 							<a href="/">All</a>
@@ -46,7 +47,7 @@ const Header = () => {
 							className={style['navbar-shopping-cart']}
 							onClick={() => toggleOrder()}
 						>
-							<img className={style['more-clickable-area pointer']} src={shoppingCart} alt="shopping cart" />
+							<Image className={style['more-clickable-area pointer']} src={shoppingCart} alt="shopping cart" />
 							{state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
 						</li>
 					</ul>
