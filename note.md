@@ -116,4 +116,5 @@ export default MyApp
 - Para que las imagenes funcionen correctamente tenemos que llamar a 'next/image' y usarlo en vez de la etiqueta img.
 - Se mueve el componente header a '_app' y se agrega el productlist a 'index.js'.
 - se hizo el mismo proceso de terminar de optimizar los modulos de stilos en productList y productItem.
-
+- se integro el checkout a 'pages' y se optimizaron los estilos.
+- se implemento el Link para conectar los componentes
