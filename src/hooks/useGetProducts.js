@@ -21,6 +21,7 @@ const useGetProducts = (API) => {
 		};
 		getPromise();
 	}, []);
+	console.log(products);
 	return products;
 };
 

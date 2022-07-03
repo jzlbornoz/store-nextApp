@@ -118,3 +118,31 @@ export default MyApp
 - se hizo el mismo proceso de terminar de optimizar los modulos de stilos en productList y productItem.
 - se integro el checkout a 'pages' y se optimizaron los estilos.
 - se implemento el Link para conectar los componentes
+- se crea el archivo '_document.js' en pages, que es donde se vaa a plasmar toda la imformacion de las paginas de la aplicacion, es importante para el uso de metadatos.
+`
+import { Html, Head, Main, NextScript } from 'next/document'
+
+export default function Document() {
+  return (
+    <Html>
+      <Head />
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  )
+}
+
+# === se agrego GA ===
+se agrego lo siguiente al head en '_document.js':
+`
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCTH9JWM9X"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: ` window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-FCTH9JWM9X');
+    
+`

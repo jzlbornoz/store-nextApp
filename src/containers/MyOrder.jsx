@@ -23,8 +23,8 @@ const MyOrder = () => {
 						className={styles['more-clickable-area'] , styles.pointer}
 						src={arrow} alt="arrow"
 						onClick={() => toggleOrder()}
-						width={50}
-						height={50}
+						width={15}
+						height={15}
 					/>
 					<p className={styles.title}>My order</p>
 				</div>
