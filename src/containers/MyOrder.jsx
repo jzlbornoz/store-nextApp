@@ -14,7 +14,6 @@ const MyOrder = () => {
 		const sum = state.cart.reduce(reducer, 0);
 		return sum;
 	}
-
 	return (
 		<aside className={styles.MyOrder}>
 			<div className={styles['MyOrder-container']}>
@@ -40,8 +39,8 @@ const MyOrder = () => {
 						</p>
 						<p>${sumTotal()}</p>
 					</div>
-					<Link className={styles['primary-button']} href='/checkout'>
-						Checkout
+					<Link href='/checkout'>
+						<div className={styles['primary-button']}>Checkout</div>
 					</Link>
 				</div>
 			</div>

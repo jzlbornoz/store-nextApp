@@ -148,4 +148,7 @@ se agrego lo siguiente al head en '_document.js':
 `
 
 == Preparando el deploy a produccion ==
-- se agrega el siguiente escript a al package.json: ``
+- se agrega el siguiente escript a al package.json: `"lint:fix": "eslint src/ --fix"`
+- se corrigen los errores 
+- se modifica la configuracion de eslint '.eslintrc.js' para los errores /prettier/prettier.
+- se corrigen el resto de errores y se hace el build

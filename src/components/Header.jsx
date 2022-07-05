@@ -15,40 +15,46 @@ const Header = () => {
 	return (
 		<>
 			<nav className={style.nav}>
-				<Image src={menu} alt="menu" className={style.menu} />
+				<img src={menu.src} alt="menu" className={style.menu} />
 				<div className={style['navbar-left']}>
 					<Link href='/'>
-						<Image src={logo} alt="logo" className={style['nav-logo']} />
+						<h2 className={style['nav-logo']}>STORE</h2>
 					</Link>
 					<ul>
 						<li>
-							<a href="/">All</a>
+							<Link href="/">All</Link>
 						</li>
 						<li>
-							<a href="/">Clothes</a>
+							<Link href="/">Clothes</Link>
 						</li>
 						<li>
-							<a href="/">Electronics</a>
+							<Link href="/">Electronics</Link>
 						</li>
 						<li>
-							<a href="/">Furnitures</a>
+							<Link href="/">Furnitures</Link>
 						</li>
 						<li>
-							<a href="/">Toys</a>
+							<Link href="/">Toys</Link>
 						</li>
 						<li>
-							<a href="/">Others</a>
+							<Link href="/">Others</Link>
 						</li>
 					</ul>
 				</div>
 				<div className={style['navbar-right']}>
 					<ul>
-						<li className={style['more-clickable-area navbar-email pointer']} onClick={() => toggleMenu()}>
-							platzi@example.com
+						<li className={style['navbar-email pointer more-clickable-area ']}
+							onClick={() => toggleMenu()}
+							onKeyPress={() => toggleMenu()} 
+							role="presentation"
+						>
+							User
 						</li>
 						<li
 							className={style['navbar-shopping-cart']}
 							onClick={() => toggleOrder()}
+							onKeyPress={() => toggleMenu()}
+							role="presentation"
 						>
 							<Image className={style['more-clickable-area pointer']} src={shoppingCart} alt="shopping cart" />
 							{state.cart.length > 0 ? <div>{state.cart.length}</div> : null}

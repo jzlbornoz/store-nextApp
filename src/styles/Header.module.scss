@@ -10,12 +10,15 @@
   background: white;
   width: calc(100% - 50px);
   z-index: 29;
+  width: 100%;
+  align-items: center;
 }
 .menu {
   display: none;
 }
 .nav-logo {
   width: 100px;
+  color: $--hospital-green;
 }
 .navbar-left ul,
 .navbar-right ul {

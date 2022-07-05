@@ -6,7 +6,7 @@
   box-sizing: border-box;
   position: fixed;
   right: 0;
-  background-color: rgba(255, 255, 255, 0.882);
+  background-color: rgba(255, 255, 255, 0.915);
   top: 60px;
   bottom: 0;
   border-radius: 6px;
@@ -79,7 +79,16 @@
   font-size: $--md;
   font-weight: bold;
   height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+.primary-button:hover{
+  background-color: $--white;
+  border: 1px solid $--hospital-green;
+  color: $--hospital-green;
+}
+
 @media (max-width: 640px) {
   .MyOrder {
     width: 100%;
