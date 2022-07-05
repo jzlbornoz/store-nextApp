@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const initialState = {
   cart: [],
@@ -12,9 +12,7 @@ const useInitialState = () => {
   const addToCart = (payload) => {
     setState({
       ...state,
-      cart: state.cart.includes(payload)
-        ? state.cart
-        : [...state.cart, payload],
+      cart: state.cart.includes(payload) ? state.cart : [...state.cart, payload],
     });
   };
 

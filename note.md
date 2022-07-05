@@ -146,3 +146,6 @@ se agrego lo siguiente al head en '_document.js':
         gtag('config', 'G-FCTH9JWM9X');
     
 `
+
+== Preparando el deploy a produccion ==
+- se agrega el siguiente escript a al package.json: ``
