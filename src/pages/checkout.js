@@ -29,7 +29,7 @@ const Checkout = () => {
               </div>
             </div>
             {cart.map((product) => (
-              <OrderItem product={product} />
+              <OrderItem product={product} key={product.id + 12}/>
             ))}
           </div>
         </div>
