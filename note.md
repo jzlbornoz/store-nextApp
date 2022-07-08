@@ -151,4 +151,26 @@ se agrego lo siguiente al head en '_document.js':
 - se agrega el siguiente escript a al package.json: `"lint:fix": "eslint src/ --fix"`
 - se corrigen los errores 
 - se modifica la configuracion de eslint '.eslintrc.js' para los errores /prettier/prettier.
-- se corrigen el resto de errores y se hace el build
+- se corrigen el resto de errores y se hace el build.
+
+
+== Convirtiendo en PWA ==
+- se instala `npm i next-pwa`.
+- se agrega la siguiente configuracion a "nex.config.js":
+`
+const withPWA = require("next-pwa");
+`
+module.exports = withPWA({
+  pwa: {
+    dest: 'public',
+    register: true,
+    mode: 'production',
+    disable: false,
+  },
+  reactStrictMode: true,
+  images: {
+    domains: ['placeimg.com', 'api.lorem.space']
+  }
+})
+`
+- Se agrega el manifest en la carpeta public.
