@@ -174,3 +174,7 @@ module.exports = withPWA({
 })
 `
 - Se agrega el manifest en la carpeta public.
+
+
+== Exportar proyecto como estatico (SSG) ==
+- se agrega el siguiente script al 'package.json': ` "export": "next build && next export" ` 
