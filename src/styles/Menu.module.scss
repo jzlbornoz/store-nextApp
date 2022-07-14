@@ -35,8 +35,11 @@
 }
 
 .Menu ul li:last-child a {
-	color: $--hospital-green;
+	color: $--very-light-pink;
 	font-size: $--sm;
+}
+.Menu ul li:last-child a:hover{
+	color: rgb(255, 85, 85);
 }
 
 .Menu ul li a {
