@@ -11,7 +11,7 @@ const Checkout = () => {
     const reducer = (accumalator, currentValue) => accumalator + currentValue.price;
     const sum = cart.reduce(reducer, 0);
     return sum;
-  }
+  };
 
   //--
   if (cart.length > 0) {
@@ -29,7 +29,7 @@ const Checkout = () => {
               </div>
             </div>
             {cart.map((product) => (
-              <OrderItem product={product} key={product.id + 12}/>
+              <OrderItem product={product} key={product.id + 12} />
             ))}
           </div>
         </div>
@@ -45,8 +45,7 @@ const Checkout = () => {
           <h2>Haz tu pedido</h2>
         </div>
       </>
-
-    )
+    );
   }
 };
 

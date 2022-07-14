@@ -7,9 +7,9 @@ import styles from '@styles/OrderItem.module.scss';
 const OrderItem = ({ product }) => {
 	const { removeFromCart } = useContext(AppContext);
 
-	const handleRemove = product => {
+	const handleRemove = (product) => {
 		removeFromCart(product);
-	}
+	};
 
 	return (
 		<div className={styles.OrderItem}>
@@ -18,12 +18,13 @@ const OrderItem = ({ product }) => {
 			</figure>
 			<p>{product?.title}</p>
 			<p>${product?.price}</p>
-			<Image
-				className={styles['more-clickable-area'], styles.pointer}
+			<Image className={(styles['more-clickable-area'], styles.pointer)}
 				src={close} alt="close"
-				onClick={() => handleRemove(product)} />
+				onClick={() => handleRemove(product)}
+
+			/>
 		</div>
 	);
-}
+};
 
 export default OrderItem;

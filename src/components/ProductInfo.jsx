@@ -10,14 +10,15 @@ const ProductInfo = () => {
 			<div className={styles.ProductInfo}>
 				<p>$35,00</p>
 				<p>Bike</p>
-				<p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
-				<button className={styles['primary-button'], styles['add-to-cart-button']}>
+				<p>With its practical position, this bike also fulfills a decorative function, 
+				add your hall or workspace.</p>
+				<button className={(styles['primary-button'], styles['add-to-cart-button'])}>
 					<Image src={addToCart} alt="add to cart" />
 					Add to cart
 				</button>
 			</div>
 		</>
 	);
-}
+};
 
 export default ProductInfo;

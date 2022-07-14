@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
-import Image from "next/image";
+import Image from 'next/image';
 import Menu from '@components/Menu';
 import MyOrder from '@containers/MyOrder';
 import menu from '@icons/icon_menu.svg';
@@ -16,7 +16,7 @@ const Header = () => {
 			<nav className={style.nav}>
 				<img src={menu.src} alt="menu" className={style.menu} />
 				<div className={style['navbar-left']}>
-					<Link href='/'>
+					<Link href="/">
 						<h2 className={style['nav-logo']}>STORE</h2>
 					</Link>
 					<ul>
@@ -44,13 +44,12 @@ const Header = () => {
 					<ul>
 						<li className={style['navbar-email pointer more-clickable-area ']}
 							onClick={() => toggleMenu()}
-							onKeyPress={() => toggleMenu()} 
+							onKeyPress={() => toggleMenu()}
 							role="presentation"
 						>
 							User
 						</li>
-						<li
-							className={style['navbar-shopping-cart']}
+						<li className={style['navbar-shopping-cart']}
 							onClick={() => toggleOrder()}
 							onKeyPress={() => toggleMenu()}
 							role="presentation"
@@ -65,6 +64,6 @@ const Header = () => {
 			{state.orderIsOpen && <MyOrder />}
 		</>
 	);
-}
+};
 
 export default Header;

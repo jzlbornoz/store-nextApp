@@ -8,20 +8,21 @@ import styles from '@styles/ProductItem.module.scss';
 const ProductItem = ({ product }) => {
 	const { state, addToCart } = useContext(AppContext);
 
-	const handleClick = item => {
+	const handleClick = (item) => {
 		console.log('in cart: ', state.cart.includes(item));
-		addToCart(item)
-	}
+		addToCart(item);
+	};
 
 	return (
 		<div className={styles.ProductItem}>
-			{product.images[0] && <Image
-				src={product.images[0]}
-				width={240}
-				height={240}
-				alt={product.title}
-				loader={() => product.images[0]}
-			/>}
+			{product.images[0]
+				&& <Image src={product.images[0]}
+					width={240}
+					height={240}
+					alt={product.title}
+					loader={() => product.images[0]}
+
+				/>}
 			<div className={styles['product-info']}>
 				<div>
 					<p>${product.price}</p>
@@ -30,24 +31,27 @@ const ProductItem = ({ product }) => {
 				<figure className={styles['more-clickable-area']}
 					onClick={() => handleClick(product)}
 					onKeyPress={() => handleClick(product)}
-					role="presentation"
-				>
+					role="presentation">
 					{state.cart.includes(product)
-						? <Image
-							className={styles.disabled, styles['add-to-cart-btn']}
-							src={addedToCartImage} alt="added to cart"
-							width={50}
-							height={50} />
-						: <Image
-							className={styles['add-to-cart-btn'], styles.pointer}
-							src={addToCartImage} alt="add to cart"
-							width={50}
-							height={50} />}
-
+						? (
+							<Image
+								className={(styles.disabled, styles['add-to-cart-btn'])}
+								src={addedToCartImage}
+								alt="added to cart"
+								width={50}
+								height={50} />
+						)
+						: (
+							<Image
+								className={(styles['add-to-cart-btn'], styles.pointer)}
+								src={addToCartImage} alt="add to cart"
+								width={50}
+								height={50} />
+						)}
 				</figure>
 			</div>
 		</div>
 	);
-}
+};
 
 export default ProductItem;
