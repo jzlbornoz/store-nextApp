@@ -4,7 +4,7 @@ import styles from '@styles/Menu.module.scss';
 
 const Menu = () => {
 	return (
-		<div className={styles.Menu}>
+		<aside className={styles.Menu}>
 			<ul>
 				<li>
 					<Link href="/" className="title">
@@ -18,7 +18,7 @@ const Menu = () => {
 					<Link href="/">Sign out</Link>
 				</li>
 			</ul>
-		</div>
+		</aside>
 	);
 };
 

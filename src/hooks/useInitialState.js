@@ -37,13 +37,13 @@ const useInitialState = () => {
     });
   };
 
-  return {
-    state,
-    addToCart,
-    removeFromCart,
-    toggleOrder,
-    toggleMenu,
-  };
+return {
+  state,
+  addToCart,
+  removeFromCart,
+  toggleOrder,
+  toggleMenu,
+};
 };
 
 export default useInitialState;

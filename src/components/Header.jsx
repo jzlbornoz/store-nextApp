@@ -17,7 +17,7 @@ const Header = () => {
 				<img src={menu.src} alt="menu" className={style.menu} />
 				<div className={style['navbar-left']}>
 					<Link href="/">
-						<h2 className={style['nav-logo']}>STORE</h2>
+						<h2 className={style['nav-logo']}>Atech Store</h2>
 					</Link>
 					<ul>
 						<li>
@@ -45,23 +45,21 @@ const Header = () => {
 						<li className={style['navbar-email pointer more-clickable-area ']}
 							onClick={() => toggleMenu()}
 							onKeyPress={() => toggleMenu()}
-							role="presentation"
-						>
-							User
+							role="presentation">
+							UserName
 						</li>
 						<li className={style['navbar-shopping-cart']}
 							onClick={() => toggleOrder()}
-							onKeyPress={() => toggleMenu()}
-							role="presentation"
-						>
+							onKeyPress={() => toggleOrder()}
+							role="presentation">
 							<Image className={style['more-clickable-area pointer']} src={shoppingCart} alt="shopping cart" />
 							{state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
 						</li>
 					</ul>
 				</div>
-				{state.menuIsOpen && <Menu />}
 			</nav>
-			{state.orderIsOpen && <MyOrder />}
+			{state.orderIsOpen  && <MyOrder />}
+			{state.menuIsOpen && <Menu />}
 		</>
 	);
 };

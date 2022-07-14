@@ -9,15 +9,17 @@
   top: 0;
   background: white;
   width: calc(100% - 50px);
-  z-index: 29;
+  z-index: 12;
   width: 100%;
   align-items: center;
+  height: 10vh;
+  box-shadow: 0px 10px 25px -3px rgba(0,0,0,0.1);
 }
 .menu {
   display: none;
 }
 .nav-logo {
-  width: 100px;
+  width: auto;
   color: $--hospital-green;
 }
 .navbar-left ul,
@@ -27,7 +29,8 @@
   margin: 0;
   display: flex;
   align-items: center;
-  height: 60px;
+  height: auto;
+ 
 }
 .navbar-left {
   display: flex;
@@ -48,10 +51,18 @@
   border: 1px solid $--hospital-green;
   color: $--hospital-green;
 }
-.navbar-email {
+.navbar-right ul{
+  color: $--hospital-green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30vh;
+}
+.navbar-right ul li{
   color: $--very-light-pink;
-  font-size: $--sm;
-  margin-right: 12px;
+}
+.navbar-right ul li:hover{
+  color: $--hospital-green;
 }
 .navbar-shopping-cart {
   position: relative;

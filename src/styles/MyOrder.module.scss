@@ -1,17 +1,16 @@
 @import "vars";
 
 .MyOrder {
-  width: 360px;
+  width: 28vw;
   padding: 24px;
   box-sizing: border-box;
   position: fixed;
   right: 0;
   background-color: rgba(255, 255, 255, 0.915);
-  top: 60px;
+  top: 10vh;
   bottom: 0;
-  border-radius: 6px;
   border: 1px solid $--very-light-pink;
-	z-index: 10;
+	z-index: 19;
 }
 .title-container {
   display: flex;
