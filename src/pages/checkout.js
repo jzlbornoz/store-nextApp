@@ -25,7 +25,7 @@ const Checkout = () => {
                 <p>
                   <span>{`${cart.length} articles`}</span>
                 </p>
-                <p>{sumTotal()}</p>
+                <p>${sumTotal()}</p>
               </div>
             </div>
             {cart.map((product) => (

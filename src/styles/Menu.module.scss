@@ -6,7 +6,7 @@
 	box-sizing: border-box;
 	position: fixed;
 	right: 0;
-	background-color: rgb(255, 255, 255);
+	background-color: rgba(255, 255, 255, 0.95);
 	top: 10vh;
 	bottom: 65vh;
 	border: 1px solid $--very-light-pink;
@@ -48,3 +48,10 @@
 	margin-bottom: 20px;
 	display: inline-block;
 }
+
+@media (max-width: 1000px) {
+	.Menu {
+	  width: 100%;
+	}
+  }
+  
