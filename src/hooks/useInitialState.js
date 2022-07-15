@@ -27,12 +27,14 @@ const useInitialState = () => {
     setState({
       ...state,
       orderIsOpen: !state.orderIsOpen,
+      menuIsOpen:false,
     });
   };
 
   const toggleMenu = () => {
     setState({
       ...state,
+      orderIsOpen: false,
       menuIsOpen: !state.menuIsOpen,
     });
   };

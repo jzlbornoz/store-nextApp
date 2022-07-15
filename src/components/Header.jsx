@@ -14,7 +14,7 @@ const Header = () => {
 	return (
 		<>
 			<nav className={style.nav}>
-				<img src={menu.src} alt="menu" className={style.menu} />
+				<div className={style.menu}><Image src={menu} alt="menu"  width="25" height="21" /></div>
 				<div className={style['navbar-left']}>
 					<Link href="/">
 						<h2 className={style['nav-logo']}>Atech Store</h2>
@@ -58,7 +58,7 @@ const Header = () => {
 					</ul>
 				</div>
 			</nav>
-			{state.orderIsOpen  && <MyOrder />}
+			{state.orderIsOpen && <MyOrder />}
 			{state.menuIsOpen && <Menu />}
 		</>
 	);

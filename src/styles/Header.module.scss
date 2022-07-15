@@ -80,8 +80,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: $--white;
 }
-@media (max-width: 640px) {
+
+@media (max-width: 900px) {
   .menu {
     display: block;
   }
@@ -90,5 +92,8 @@
   }
   .navbar-email {
     display: none;
+  }
+  .navbar-right ul{
+    width: 30vw;
   }
 }

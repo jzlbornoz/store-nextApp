@@ -6,7 +6,7 @@
   box-sizing: border-box;
   position: fixed;
   right: 0;
-  background-color: rgba(255, 255, 255, 0.915);
+  background-color: rgba(255, 255, 255, 0.95);
   top: 10vh;
   bottom: 0;
   border: 1px solid $--very-light-pink;
@@ -54,6 +54,7 @@
   margin-bottom: 24px;
   border-radius: 8px;
   padding: 0 24px;
+  border: 1px solid $--very-light-pink;
 }
 .order p:nth-child(1) {
   display: flex;
