@@ -1,4 +1,4 @@
-@import 'vars';
+@import "vars";
 
 .MyAccount {
 	width: 100%;
@@ -18,7 +18,7 @@
 	display: none;
 }
 .title {
-	font-size: var(--lg);
+	font-size: $--lg;
 	margin-bottom: 36px;
 	text-align: start;
 }
@@ -31,26 +31,29 @@
 	flex-direction: column;
 }
 .label {
-	font-size: var(--sm);
+	font-size: $--sm;
 	font-weight: bold;
 	margin-bottom: 4px;
 }
 .value {
-	color: var(--very-light-pink);
-	font-size: var(--md);
+	color: $--very-light-pink;
+	font-size: $--md;
 	margin: 8px 0 32px 0;
 }
-.secondary-button {
-	background-color: var(--white);
+.secondary-button{
+	background-color: $--hospital-green;
 	border-radius: 8px;
-	border: 1px solid var(--hospital-green);
-	color: var(--hospital-green);
+	border: 1px solid $--hospital-green;
+	color: $--white;
 	width: 100%;
 	cursor: pointer;
-	font-size: var(--md);
+	font-size: $--md;
 	font-weight: bold;
 	height: 50px;
+	margin: 10px 0px 10px 0px;
 }
+
+
 .login-button {
 	margin-top: 14px;
 	margin-bottom: 30px;

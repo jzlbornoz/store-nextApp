@@ -5,6 +5,7 @@ import addToCartImage from '@icons/bt_add_to_cart.svg';
 import addedToCartImage from '@icons/bt_added_to_cart.svg';
 import styles from '@styles/ProductItem.module.scss';
 
+
 const ProductItem = ({ product }) => {
 	const { state, addToCart } = useContext(AppContext);
 
@@ -27,6 +28,8 @@ const ProductItem = ({ product }) => {
 				<div>
 					<p>${product.price}</p>
 					<p>{product.title}</p>
+				</div>
+				<div>
 				</div>
 				<figure className={styles['more-clickable-area']}
 					onClick={() => handleClick(product)}

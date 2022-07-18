@@ -20,7 +20,6 @@ const useGetProducts = (API) => {
     };
     getPromise();
   }, [API]);
-  console.log(products);
   return products;
 };
 
