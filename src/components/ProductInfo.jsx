@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from '@styles/ProductInfo.module.scss';
-import addToCart from '@icons/bt_add_to_cart.svg';
+import addToCartImg from '@icons/bt_add_to_cart.svg';
 import Link from 'next/link';
+import AppContext from '@context/AppContext';
 
 const ProductInfo = ({ id }) => {
 	const [product, setProduct] = useState([]);
-
+	const { addToCart } = useContext(AppContext);
+	const handleClick = (item) => {
+		addToCart(item);
+	}
 	useEffect(() => {
 		fetch(`https://api.escuelajs.co/api/v1/products/${id}`)
 			.then((response) => response.json())
@@ -36,8 +40,9 @@ const ProductInfo = ({ id }) => {
 						<p>{product.title}</p>
 						<p>{product.description}</p>
 						<div className={styles.ProductButtons}>
-							<button className={styles['primary-button']}>
-								<Image src={addToCart}
+							<button className={styles['primary-button']} 
+							onClick={() => handleClick(product)} >
+								<Image src={addToCartImg}
 									alt="add to cart"
 									width={30}
 									height={30}
@@ -45,7 +50,7 @@ const ProductInfo = ({ id }) => {
 								/>
 								Add to cart
 							</button>
-							
+
 							<div className={styles.Exit}><Link href="/">Back</Link></div>
 						</div>
 

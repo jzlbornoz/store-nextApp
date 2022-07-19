@@ -1,7 +1,7 @@
 # Started Next App
 - `npx create-next-app@latest --use-npm`
 - create 'jsconfig.json' then write:
-`
+```
 {
     "compilerOptions": {
         "baseUrl": "src",
@@ -10,11 +10,12 @@
         }
     }
 }
-`
+```
 Esto servirá para que la carpeta/url base de neustro proyecto sea la carpeta pages que acabamos de crear.
 - create 'eslintignore' for ignore the node_modules folder.
 - rename 'eslintrc.json' to 'eslintrc.js' that so can export as module. then write the following script:
-`module.exports = {
+```
+module.exports = {
   root: true,
   env: {
     browser: true,
@@ -33,9 +34,9 @@ Esto servirá para que la carpeta/url base de neustro proyecto sea la carpeta pa
     'semi': ['error', 'always'],
   }
 }
-`
+```
 - creater 'prettier.config.js' and write the following script:
-`
+```
 module.exports = {
     semi: true,
     singleQuote: true,
@@ -45,11 +46,11 @@ module.exports = {
     trailingComma: 'es5',
     bracketSpacing: true,
 }
-`
+```
 - install de dependencies: 
 `npm i prettier eslint-plugin-prettier eslint-plugin-jsx-a11y eslint-config-prettier eslint-config-next`.
 - add the configure in 'next.config.js'.
-`
+```
 module.exports = {
 reactStrictMode: true,
 env: {
@@ -66,13 +67,14 @@ permanent: true,
 }
 ]
 }
-}`
+}
+```
 
 - Se hizo la migracion de la carpeta 'src' del proyecto en react, dentro de esta carpeta se renombro la carpeta pages por templates, para asi evitar conflictos. La carpeta original del proyecto nextjs se renombro por src2.
 - Se integraron los elementos de src2 en src.
 - se elimina el index.js 
 - en el index.js de pages se agrega el codigo inicial.
-`
+```
 import React from 'react';
 import Header from '@components/Header';
 
@@ -84,19 +86,19 @@ export default function Home() {
   )
 }
 
-`
+```
 - se agrega el alias en jsconfig.json.
 - instalar sass : `npm install sass`.
 - se cambian los stilos del header a .module.
 - se modifican las variables.
 - elimina la mayoria de next.config.js
-`
-module.exports = {
+```
+modu`le.exports = {
   reactStrictMode: true,
 }
-`
+```
 - Se agrega el context y el initial state en el '_app.js'.
-`
+```
 import '@styles/globals.css';
 import AppContext from '@context/AppContext';
 import useInitialState from '@hooks/useInitialState';
@@ -112,14 +114,14 @@ function MyApp({ Component, pageProps }) {
 
 export default MyApp
 
-`
+```
 - Para que las imagenes funcionen correctamente tenemos que llamar a 'next/image' y usarlo en vez de la etiqueta img.
 - Se mueve el componente header a '_app' y se agrega el productlist a 'index.js'.
 - se hizo el mismo proceso de terminar de optimizar los modulos de stilos en productList y productItem.
 - se integro el checkout a 'pages' y se optimizaron los estilos.
 - se implemento el Link para conectar los componentes
 - se crea el archivo '_document.js' en pages, que es donde se vaa a plasmar toda la imformacion de las paginas de la aplicacion, es importante para el uso de metadatos.
-`
+```
 import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
@@ -133,10 +135,10 @@ export default function Document() {
     </Html>
   )
 }
-
+```
 # === se agrego GA ===
 se agrego lo siguiente al head en '_document.js':
-`
+```
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCTH9JWM9X"></script>
         <script dangerouslySetInnerHTML={{
           __html: ` window.dataLayer = window.dataLayer || [];
@@ -145,7 +147,7 @@ se agrego lo siguiente al head en '_document.js':
       
         gtag('config', 'G-FCTH9JWM9X');
     
-`
+```
 
 == Preparando el deploy a produccion ==
 - se agrega el siguiente escript a al package.json: `"lint:fix": "eslint src/ --fix"`
@@ -157,9 +159,9 @@ se agrego lo siguiente al head en '_document.js':
 == Convirtiendo en PWA ==
 - se instala `npm i next-pwa`.
 - se agrega la siguiente configuracion a "nex.config.js":
-`
+```
 const withPWA = require("next-pwa");
-`
+
 module.exports = withPWA({
   pwa: {
     dest: 'public',
@@ -172,7 +174,7 @@ module.exports = withPWA({
     domains: ['placeimg.com', 'api.lorem.space']
   }
 })
-`
+```
 - Se agrega el manifest en la carpeta public.
 
 

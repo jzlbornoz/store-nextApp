@@ -1,11 +1,11 @@
 {
-    "theme_color": "#ffffff",
-    "background_color": "#b6f9c4",
+    "theme_color": "#FFFFFF",
+    "background_color": "#B6F8C4",
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "YourStoreApp ",
-    "short_name": "YourStore",
+    "name": "Atech Store App",
+    "short_name": "Atech Store",
     "description": "Javier Albornoz, store-next-app",
     "icons": [
         {
