@@ -4,6 +4,7 @@ import AppContext from '@context/AppContext';
 import addToCartImage from '@icons/bt_add_to_cart.svg';
 import addedToCartImage from '@icons/bt_added_to_cart.svg';
 import styles from '@styles/ProductItem.module.scss';
+import Link from 'next/link';
 
 
 const ProductItem = ({ product }) => {
@@ -17,13 +18,13 @@ const ProductItem = ({ product }) => {
 	return (
 		<div className={styles.ProductItem}>
 			{product.images[0]
-				&& <Image src={product.images[0]}
+				&& <Link href={`/product/${product.id}`}><Image src={product.images[0]}
 					width={240}
 					height={240}
 					alt={product.title}
 					loader={() => product.images[0]}
 					unoptimized= {true}
-				/>}
+				/></Link>}
 			<div className={styles['product-info']}>
 				<div>
 					<p>${product.price}</p>

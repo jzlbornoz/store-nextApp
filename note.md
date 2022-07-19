@@ -178,3 +178,34 @@ module.exports = withPWA({
 
 == Exportar proyecto como estatico (SSG) ==
 - se agrega el siguiente script al 'package.json': ` "export": "next build && next export" ` 
+
+== Integracion de la Product Page ==
+- Se crea la carpeta product y en ella el '[id].js', para lograr capturar el id del articulo y hacer el llamado a la API.
+```
+const { query: { id } } = useRouter();
+```
+- Se le pasa el id por props al componente 'ProductInfo.jsx' y se hace el llamado a la API.
+```
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
+import styles from '@styles/ProductInfo.module.scss';
+import addToCart from '@icons/bt_add_to_cart.svg';
+import Link from 'next/link';
+
+const ProductInfo = ({ id }) => {
+	const [product, setProduct] = useState([]);
+
+	useEffect(() => {
+		fetch(`https://api.escuelajs.co/api/v1/products/${id}`)
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(data);
+				setProduct(data);
+			})
+			.catch((err) => {
+				console.log('error :' + err);
+			});
+	}, [id]);
+
+	// ---
+```
