@@ -26,13 +26,17 @@ const ProductInfo = ({ id }) => {
 	// ---
 	return (
 		<section className={product.price ? styles.ProductInfo : styles['ProductInfo-Skeleton']}>
+			<div className={styles.ProductInfoImageContainer} >
 			{product.images
 				&& <Image src={product.images[0]}
 					width={240}
 					height={240}
 					alt={product.title}
-					loader={() => product.image} unoptimized={true} />
+					loader={() => product.image} unoptimized={true} 
+						className={styles.ProductInfoImage}
+					/>
 			}
+			</div>
 			<div className={styles.ProductDetails}>
 				<h2>{product.price && `$${product.price}`}</h2>
 				<p>{product.title}</p>

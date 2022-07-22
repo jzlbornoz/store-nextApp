@@ -1,12 +1,14 @@
 @import 'vars';
 
 .ProductInfo {
-	margin: 15vh 24px 0 24px;
+	margin: 15vh 10% 0 10%;
 	display: flex;
 	border-radius: 15px;
 	box-shadow: 0px 10px 25px -3px rgba(0,0,0,0.1);
+	padding: 0px 20px 0px 20px;
 }
-.ProductInfo img {
+
+.ProductInfoImage {
 	border-radius: 15px;
 }
 .ProductDetails{
@@ -93,6 +95,7 @@ color: $--very-light-pink;
 	padding: 0px 20px 0px 20px ;
 	border-radius: 5px;
 	margin-left: 200px;
+	height: 50vh;
 	animation: skeleton-loading 1s linear infinite alternate;
 }
 
@@ -111,6 +114,11 @@ color: $--very-light-pink;
 	  flex-wrap: wrap;
 	}
   }
+  .ProductInfoImageContainer{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
 
   @keyframes skeleton-loading {
 	0% {
