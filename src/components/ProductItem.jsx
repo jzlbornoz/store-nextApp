@@ -23,7 +23,7 @@ const ProductItem = ({ product }) => {
 					height={240}
 					alt={product.title}
 					loader={() => product.images[0]}
-					unoptimized= {true}
+					unoptimized={true}
 				/></Link>}
 			<div className={styles['product-info']}>
 				<div>

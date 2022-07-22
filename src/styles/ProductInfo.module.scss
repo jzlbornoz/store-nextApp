@@ -34,6 +34,7 @@ color: $--very-light-pink;
 	align-items: center;
 	justify-content: center;
 }
+
 .add-to-cart-button {
 	display: flex;
 	align-items: center;
@@ -41,6 +42,7 @@ color: $--very-light-pink;
 	height: 100%;
 	width: 100%;
 }
+
 
 .Exit{
 	color: $--very-light-pink;
@@ -52,6 +54,7 @@ color: $--very-light-pink;
 	border: solid 1px $--very-light-pink;
 }
 
+
 .Exit:hover{
 	background-color: $--very-light-pink;
 	color: $--white;
@@ -62,8 +65,58 @@ color: $--very-light-pink;
 	margin-top: 10vh;
 }
 
+.primary-button-skeleton{
+	background-color: $--very-light-pink;
+	color: rgba(0, 0, 0, 0);
+	border-radius: 8px;
+	border: none;
+	cursor: pointer;
+	font-size: $--md;
+	font-weight: bold;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.add-to-cart-button-skeleton{
+	opacity: 0;
+}
+
+.Exit-Skeleton{
+	color: rgba(0, 0, 0, 0);
+	background-color: $--very-light-pink;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0px 20px 0px 20px ;
+	border-radius: 5px;
+	margin-left: 200px;
+	animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.ProductInfo-Skeleton{
+	margin: 15vh 24px 0 24px;
+	display: flex;
+	border-radius: 15px;
+	box-shadow: 0px 10px 25px -3px rgba(0,0,0,0.1);
+	color: rgba(0, 0, 0, 0);
+	background-color: $--very-light-pink;
+	animation: skeleton-loading 1s linear infinite alternate;
+}
+
 @media (max-width: 800px) {
 	.ProductInfo {
 	  flex-wrap: wrap;
+	}
+  }
+
+  @keyframes skeleton-loading {
+	0% {
+	  background-color: hsl(200, 20%, 80%);
+	}
+	100% {
+	  background-color: hsl(200, 20%, 95%);
 	}
   }

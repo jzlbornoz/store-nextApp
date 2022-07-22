@@ -24,43 +24,39 @@ const ProductInfo = ({ id }) => {
 	}, [id]);
 
 	// ---
-	if (product) {
-		return (
-			<>
-				<section className={styles.ProductInfo}>
-					{product.images
-						&& <Image src={product.images[0]}
-							width={240}
-							height={240}
-							alt={product.title}
-							loader={() => product.image} unoptimized={true} />
-					}
-					<div className={styles.ProductDetails}>
-						<h2>{product.price ? `$${product.price}` : <h2>Loading</h2>}</h2>
-						<p>{product.title}</p>
-						<p>{product.description}</p>
-						<div className={styles.ProductButtons}>
-							<button className={styles['primary-button']} 
-							onClick={() => handleClick(product)} >
-								<Image src={addToCartImg}
-									alt="add to cart"
-									width={30}
-									height={30}
-									className={styles['add-to-cart-button']}
-								/>
-								Add to cart
-							</button>
+	return (
+		<section className={product.price ? styles.ProductInfo : styles['ProductInfo-Skeleton']}>
+			{product.images
+				&& <Image src={product.images[0]}
+					width={240}
+					height={240}
+					alt={product.title}
+					loader={() => product.image} unoptimized={true} />
+			}
+			<div className={styles.ProductDetails}>
+				<h2>{product.price && `$${product.price}`}</h2>
+				<p>{product.title}</p>
+				<p>{product.description}</p>
+				<div className={styles.ProductButtons}>
+					<button className={product.price ? styles['primary-button'] : styles['primary-button-skeleton']}
+						onClick={() => handleClick(product)} >
+						<Image src={addToCartImg}
+							alt="add to cart"
+							width={30}
+							height={30}
+							className={product.price ? styles['add-to-cart-button'] : styles['add-to-cart-button-skeleton']}
+						/>
+						Add to cart
+					</button>
 
-							<div className={styles.Exit}><Link href="/">Back</Link></div>
-						</div>
+					<div className={product.price ? styles.Exit : styles['Exit-Skeleton']}><Link href="/">Back</Link></div>
+				</div>
 
-					</div>
-				</section>
-			</>
-		);
-	} else {
-		return <h2 className={styles.Loading}>Loading</h2>;
-	}
+			</div>
+		</section>
+
+	);
+
 };
 
 export default ProductInfo;

@@ -7,7 +7,7 @@
 	place-items: center;
 }
 .title {
-	font-size: var(--lg);
+	font-size: $--lg;
 	margin-bottom: 40px;
 }
 .Checkout-container {
@@ -24,7 +24,7 @@
 	grid-template-columns: auto 1fr;
 	gap: 16px;
 	align-items: center;
-	background-color: var(--text-input-field);
+	background-color: $--text-input-field;
 	margin-bottom: 24px;
 	border-radius: 8px;
 	padding: 0 24px;
@@ -34,12 +34,12 @@
 	flex-direction: column;
 }
 .order p span:nth-child(1) {
-	font-size: var(--md);
+	font-size: $--md;
 	font-weight: bold;
 }
 .order p span:nth-child(2) {
-	font-size: var(--sm);
-	color: var(--very-light-pink);
+	font-size: $--sm;
+	color: $--very-light-pink;
 }
 .order p:nth-child(2) {
 	text-align: end;
