@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { memo, useContext } from 'react';
 import Image from 'next/image';
 import AppContext from '@context/AppContext';
 import addToCartImage from '@icons/bt_add_to_cart.svg';
@@ -18,13 +18,15 @@ const ProductItem = ({ product }) => {
 	return (
 		<div className={styles.ProductItem}>
 			{product.images[0]
-				&& <Link href={`/product/${product.id}`}><Image src={product.images[0]}
-					width={240}
-					height={240}
-					alt={product.title}
-					loader={() => product.images[0]}
-					unoptimized={true}
-				/></Link>}
+				&& <Link href={`/product/${product.id}`}>
+					<Image src={product.images[0]}
+						width={240}
+						height={240}
+						alt={product.title}
+						loader={() => product.images[0]}
+						unoptimized={true}
+						loading='lazy'
+					/></Link>}
 			<div className={styles['product-info']}>
 				<div>
 					<p>${product.price}</p>
@@ -58,4 +60,4 @@ const ProductItem = ({ product }) => {
 	);
 };
 
-export default ProductItem;
+export default memo(ProductItem);

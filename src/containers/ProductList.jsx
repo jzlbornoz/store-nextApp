@@ -15,7 +15,7 @@ const ProductList = () => {
 			<section className={styles['main-container']}>
 				<section className={styles.ProductList}>
 					{products.map((product) => (
-						<ProductItem product={product} key={product.id}/>
+						<ProductItem product={product} key={product.id} />
 					))}
 				</section>
 			</section>
@@ -23,7 +23,7 @@ const ProductList = () => {
 	} else {
 		return <ProductListSkeleton />
 	}
-	
+
 };
 
 export default ProductList;

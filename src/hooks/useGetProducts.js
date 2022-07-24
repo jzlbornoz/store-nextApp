@@ -19,7 +19,7 @@ const useGetProducts = (API) => {
         .catch((err) => console.log(err));
     };
     getPromise();
-  }, [API]);
+  }, []);
   return products;
 };
 
