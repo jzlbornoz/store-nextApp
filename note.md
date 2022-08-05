@@ -283,4 +283,76 @@ export default endPoints;
 ```
 
 == Creación del custom hook useAuth ==
+
 1. Se instala 'js-cookie' y 'axios': `npm install js-cookie axios`;
+2. Se crea el context en el directorio context/AuthContext:
+
+```
+const { createContext } = require("react");
+
+const AuthContext = createContext();
+
+export default AuthContext;
+```
+
+3. Se crea el hook useAuth.js:
+
+```
+import React, { useContext, useState } from 'react';
+import AuthContext from '@context/AuthContext';
+
+export function ProviderAuth({ children }) {
+    const auth = useProviderAuth();
+    return (
+        <AuthContext.Provider value={auth} >
+            {children}
+        </AuthContext.Provider>
+    )
+}
+
+const useAuth = () => {
+    return useContext(AuthContext);
+}
+
+const useProviderAuth = () => {
+    const [user, setUser] = useState(null);
+    const signIn = async (email, password) => {
+        setUser('landing')
+    }
+
+    return {
+        user,
+        signIn
+    }
+}
+
+export default useAuth;
+```
+
+4. Se agrega el provider al '\_app.js' conectandolo asi con toda la aplicacion:
+   -pages/\_app.js
+
+```
+function MyApp({ Component, pageProps }) {
+  const initialState = useInitialState();
+  return (
+    <>
+      <ProviderAuth>
+        <AppContext.Provider value={initialState}>
+          <Script async src="https://www.googletagmanager.com/gtag/js?id=G-FCTH9JWM9X"></Script>
+          <Script id="google-analytics" strategy="afterInteractive">
+            {` window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FCTH9JWM9X');
+      `}
+          </Script>
+          <Header />
+          <Component {...pageProps} />
+        </AppContext.Provider>
+      </ProviderAuth>
+    </>
+  );
+}
+```
