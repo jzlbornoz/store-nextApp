@@ -19,7 +19,7 @@ const LoginPage = () => {
             () => {
                 auth.setError(false);
                 console.log('login success');
-                router.push('/checkout')
+                router.push('/');
             },
             (err) => {
                 console.log("Error" + err);
