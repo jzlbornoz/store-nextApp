@@ -449,3 +449,33 @@ const handleSubmit = (event) => {
         console.log(user + password);
     }
 ```
+
+== Guardado del token en una cookie para mantener la sesión ==
+
+1. Se hace el llamado al servidor para obtener los datos del usuario mediante el envio del token en los headers del llamado:
+2. Luego se guardan en el setUser.
+
+- /hooks/useAuth.js
+
+```
+const useProviderAuth = () => {
+    const [user, setUser] = useState(null);
+    const [error, setError] = useState(false);
+    const signIn = async (email, password) => {
+        const options = {
+            headers: {
+                accept: '*/*',
+                'Content-Type': 'application/json',
+            },
+        }
+        const { data: access_token } = await axios.post(endPoints.auth.login, { email, password }, options);
+        if (access_token) {
+            Cookies.set('token', access_token.access_token, { expires: 5 });
+        }
+
+        axios.defaults.headers.Authorization = `Bearer ${access_token.access_token}`;
+        const { data: user } = await axios.get(endPoints.auth.profile);
+        setUser(user);
+        console.log(user);
+    };
+```
