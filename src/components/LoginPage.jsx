@@ -17,8 +17,13 @@ const LoginPage = () => {
         const password = passwordRef.current.value;
         auth.signIn(user, password).then(
             () => {
+                auth.setError(false);
                 console.log('login success');
                 router.push('/checkout')
+            },
+            (err) => {
+                console.log("Error" + err);
+                auth.setError(true);
             }
         )
         console.log(user + password);
@@ -51,6 +56,7 @@ const LoginPage = () => {
                             ref={passwordRef}
 
                         />
+                        {auth.error ? <div className={styles.error}>Error. invalid Mail/Password</div> : null}
                         <button onClick={handleSubmit} className={`${styles['primary-button']} ${styles['login-button']}`}>
                             Log in
                         </button>

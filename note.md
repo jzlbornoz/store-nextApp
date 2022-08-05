@@ -401,3 +401,51 @@ const useProviderAuth = () => {
 ```
 
 == Obteniendo el token de la API ==
+
+1. Se hace la validacion si tenemos el access_token
+
+- Agregamos la informacion obtenida a una cookie con Cookies.set(), en el cual le pasaremos 3 parametros, el primero sera el nombre (string), el segundo sera el valor (access_token) , y el tercero sera la duracion ({expire}).
+- Se agrega el estado de error .
+
+- /useAuth.js
+
+```
+const useProviderAuth = () => {
+    const [user, setUser] = useState(null);
+    const [error, setError] = useState(false);
+    const signIn = async (email, password) => {
+        const options = {
+            headers: {
+                accept: '*/*',
+                'Content-Type': 'application/json',
+            },
+        }
+        const { data: access_token } = await axios.post(endPoints.auth.login, { email, password }, options);
+        if (access_token) {
+            Cookies.set('token', access_token.access_token, { expires: 5 });
+        }
+        console.log(access_token);
+    };
+```
+
+2. Se agrega la logica en el login page :
+
+```
+const handleSubmit = (event) => {
+        event.preventDefault();
+        const user = userRef.current.value;
+        const password = passwordRef.current.value;
+        auth.signIn(user, password).then(
+            () => {
+                auth.setError(false);
+                console.log('login success');
+                router.push('/checkout')
+            },
+            (err) => {
+                console.log("Error" + err);
+                auth.setError(true);
+            }
+        )
+        console.log(user + password);
+    }
+```

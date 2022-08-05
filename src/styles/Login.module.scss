@@ -81,6 +81,13 @@
 	background-color: $--hospital-green;
 	color: $--white;
 }
+.error{
+	background-color: $--red;
+	color: $--white;
+	width: 100%;
+	padding: 10px;
+	border-radius: 5px;
+}
 @media (max-width: 640px) {
 	.logo {
 		display: block;
