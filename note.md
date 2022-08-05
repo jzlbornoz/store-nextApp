@@ -281,3 +281,6 @@ const endPoints = {
 
 export default endPoints;
 ```
+
+== Creación del custom hook useAuth ==
+1. Se instala 'js-cookie' y 'axios': `npm install js-cookie axios`;
