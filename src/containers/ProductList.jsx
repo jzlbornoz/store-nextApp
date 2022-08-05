@@ -10,7 +10,7 @@ const ProductList = () => {
 	const products = useGetProducts(API);
 	console.log(products);
 
-	if (products.length >= 202) {
+	if (products.length >= 200) {
 		return (
 			<section className={styles['main-container']}>
 				<section className={styles.ProductList}>

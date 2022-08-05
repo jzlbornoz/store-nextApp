@@ -237,5 +237,47 @@ const ProductInfo = ({ id }) => {
 
 	// ---
 ```
+
 == Integracion del componente login ==
-- Se creo la pagina de login
+
+- Se creo la pagina de login.
+- Se agrega el handleSubmit:
+
+```
+ const handleSubmit = (event) => {
+        event.preventDefault();
+        const user = userRef.current.value;
+        const password = passwordRef.current.value;
+        console.log(user + password);
+    }
+```
+
+== Presentacion de la API ==
+
+- se crea el directorio services, luego el directorio api y su respectivo index.js:
+- /services/api/index.js
+
+```
+const API = 'https://api.escuelajs.co';
+const VERSION = 'v1';
+
+const endPoints = {
+    auth: {
+        login: `${API}/api/${VERSION}/auth/login`,
+        profile: `${API}/api/${VERSION}/auth/profile`,
+    },
+    products: {
+        getAllProducts: `${API}/api/${VERSION}/products`,
+        getProduct: (id) => `${API}/api/${VERSION}/products/${id}`
+    },
+    users: {
+        getUsers: `${API}/api/${VERSION}/users?limit=10`,
+        getUserAvailable: `${API}/api/${VERSION}/users/is-available`
+    },
+    files: {
+        getFile: (filename) => `${API}/api/${VERSION}/files/${filename}`
+    }
+}
+
+export default endPoints;
+```
