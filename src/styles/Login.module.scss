@@ -22,54 +22,64 @@
 	flex-direction: column;
 }
 .form a {
-	color: var(--hospital-green);
-	font-size: var(--sm);
+	color: $--hospital-green;
+	font-size: $--sm;
 	text-align: center;
 	text-decoration: none;
 	margin-bottom: 52px;
 }
 .label {
-	font-size: var(--sm);
+	font-size: $--sm;
 	font-weight: bold;
 	margin-bottom: 4px;
 }
 .input {
-	background-color: var(--text-input-field);
+	background-color: $--text-input-field;
 	border: none;
 	border-radius: 8px;
 	height: 30px;
-	font-size: var(--md);
+	font-size: $--md;
 	padding: 6px;
 	margin-bottom: 12px;
 }
-.input-email {
+.inputEmail {
+	margin-bottom: 22px;
+}
+.inputPassword {
 	margin-bottom: 22px;
 }
 .primary-button {
-	background-color: var(--hospital-green);
+	background-color: $--green;
 	border-radius: 8px;
 	border: none;
-	color: var(--white);
+	color: $--white;
 	width: 100%;
 	cursor: pointer;
-	font-size: var(--md);
+	font-size: $--md;
 	font-weight: bold;
 	height: 50px;
 }
+.primary-button:hover{
+	background-color: $--hospital-green;
+}
 .secondary-button {
-	background-color: var(--white);
+	background-color: $--white;
 	border-radius: 8px;
-	border: 1px solid var(--hospital-green);
-	color: var(--hospital-green);
+	border: 1px solid $--hospital-green;
+	color: $--hospital-green;
 	width: 100%;
 	cursor: pointer;
-	font-size: var(--md);
+	font-size: $--md;
 	font-weight: bold;
 	height: 50px;
 }
 .login-button {
 	margin-top: 14px;
 	margin-bottom: 30px;
+}
+.signup-button:hover{
+	background-color: $--hospital-green;
+	color: $--white;
 }
 @media (max-width: 640px) {
 	.logo {
