@@ -356,3 +356,48 @@ function MyApp({ Component, pageProps }) {
   );
 }
 ```
+
+== Autenticándonos en la API usando Axios ==
+
+1. Se agrega la lectura del access_token con axios para posteriormente agregarla a la cookie.
+
+- Con axios.post se pueden pasar tres parametros principales: 1er. La solicitud a la Api a consumir, 2do. Los datos o parametros a enviar 3ro. La configuracion de la solicitud.
+
+- En este caso se utilizan los services(auth.login) para la solicitud, Los datos a enviar son el email y el password, y para la configuracion de la solicitud se crea la siguiente constante:
+
+```
+const useProviderAuth = () => {
+    const [user, setUser] = useState(null);
+    const signIn = async (email, password) => {
+        const options = {
+            headers: {
+                accept: '*/*',
+                'Content-Type': 'application/json',
+            },
+        };
+        //==Lectura del AccessToken que viene desde la api, para posteriormente agregarla a una cookie
+        const { data: access_token } = await axios.post(endPoints.auth.login, { email, password }, options);
+        console.log(access_token);
+    };
+```
+
+2. Se importa 'useAuth' en el componente de login page para trabajar la logica:
+
+- /component/LoginPage.jsx
+
+```
+ const handleSubmit = (event) => {
+        event.preventDefault();
+        const user = userRef.current.value;
+        const password = passwordRef.current.value;
+        auth.signIn(user, password).then(
+            () => {
+                console.log('login success');
+                router.push('/checkout')
+            }
+        )
+        console.log(user + password);
+    }
+```
+
+== Obteniendo el token de la API ==
