@@ -1,5 +1,9 @@
 @import "vars";
 
+.main-container{
+  padding-top: 30px;
+}
+
 .ProductList {
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);

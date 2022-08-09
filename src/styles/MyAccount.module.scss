@@ -11,6 +11,7 @@
 	grid-template-rows: auto 1fr auto;
 	width: 300px;
 }
+
 .logo {
 	width: 150px;
 	margin-bottom: 48px;
@@ -61,6 +62,13 @@
 @media (max-width: 640px) {
 	.form-container {
 		height: 100%;
+	}
+	.avatar{
+		width: 50vw;
+		height: 20vh;
+		padding: 100px;
+		border: 1px solid red;
+		margin-bottom: 1000px;
 	}
 	.form {
 		height: 100%;
