@@ -8,20 +8,26 @@ const Menu = () => {
 	return (
 		<aside className={styles.Menu}>
 			<ul>
-				<li onClick={() => toggleMenu()}>
+				<li>
+				<button onClick={() => toggleMenu()} onKeyPress={() => toggleMenu()}>
 					<Link href="/checkout" className="title">
 						My Orders
 					</Link>
+				</button>
 				</li>
-				<li onClick={() => toggleMenu()}>
+				<li>
+				<button onClick={() => toggleMenu()} onKeyPress={() => toggleMenu()} >
 					<Link href="/MyAccount">
 						My account
 					</Link>
+				</button>
 				</li>
-				<li onClick={() => toggleMenu()}>
+				<li>
+				<button onClick={() => toggleMenu()} onKeyPress={() => toggleMenu()} >
 					<Link href="/">
 						Sign out
 					</Link>
+				</button>
 				</li>
 			</ul>
 		</aside>
