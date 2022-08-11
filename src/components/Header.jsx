@@ -49,7 +49,7 @@ const Header = () => {
 							role="presentation">
 							{auth?.user?.name}
 						</li>
-						{auth.user && <li className={style['navbar-shopping-cart']}
+						{!auth.user && <li className={style['navbar-shopping-cart']}
 							onClick={() => toggleOrder()}
 							onKeyPress={() => toggleOrder()}
 							role="presentation">

@@ -3,6 +3,7 @@ import Head from 'next/head';
 import OrderItem from '@components/OrderItem';
 import styles from '@styles/Checkout.module.scss';
 import AppContext from '@context/AppContext';
+import Link from 'next/link';
 
 const Checkout = () => {
   const { state } = useContext(AppContext);
@@ -31,6 +32,7 @@ const Checkout = () => {
             {cart.map((product) => (
               <OrderItem product={product} key={product.id + 12} />
             ))}
+            <Link href='/dashboard'>COMPRAR</Link>
           </div>
         </div>
       </>

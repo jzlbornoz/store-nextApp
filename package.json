@@ -12,11 +12,13 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "chart.js": "^3.9.1",
     "js-cookie": "^3.0.1",
     "next": "12.2.0",
     "next-pwa": "^5.5.4",
     "prettier": "^2.7.1",
     "react": "18.2.0",
+    "react-chartjs-2": "^4.3.1",
     "react-dom": "18.2.0",
     "sass": "^1.53.0"
   },

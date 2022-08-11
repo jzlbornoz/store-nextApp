@@ -168,14 +168,14 @@ se agrego lo siguiente al head en '\_document.js':
 
 ```
 
-== Preparando el deploy a produccion ==
+# == Preparando el deploy a produccion ==
 
 - se agrega el siguiente escript a al package.json: `"lint:fix": "eslint src/ --fix"`
 - se corrigen los errores
 - se modifica la configuracion de eslint '.eslintrc.js' para los errores /prettier/prettier.
 - se corrigen el resto de errores y se hace el build.
 
-== Convirtiendo en PWA ==
+# == Convirtiendo en PWA ==
 
 - se instala `npm i next-pwa`.
 - se agrega la siguiente configuracion a "nex.config.js":
@@ -199,11 +199,11 @@ module.exports = withPWA({
 
 - Se agrega el manifest en la carpeta public.
 
-== Exportar proyecto como estatico (SSG) ==
+# == Exportar proyecto como estatico (SSG) ==
 
 - se agrega el siguiente script al 'package.json': `"export": "next build && next export"`
 
-== Integracion de la Product Page ==
+# == Integracion de la Product Page ==
 
 - Se crea la carpeta product y en ella el '[id].js', para lograr capturar el id del articulo y hacer el llamado a la API.
 
@@ -238,7 +238,7 @@ const ProductInfo = ({ id }) => {
 	// ---
 ```
 
-== Integracion del componente login ==
+# == Integracion del componente login ==
 
 - Se creo la pagina de login.
 - Se agrega el handleSubmit:
@@ -252,7 +252,7 @@ const ProductInfo = ({ id }) => {
     }
 ```
 
-== Presentacion de la API ==
+# == Presentacion de la API ==
 
 - se crea el directorio services, luego el directorio api y su respectivo index.js:
 - /services/api/index.js
@@ -282,7 +282,7 @@ const endPoints = {
 export default endPoints;
 ```
 
-== Creación del custom hook useAuth ==
+# == Creación del custom hook useAuth ==
 
 1. Se instala 'js-cookie' y 'axios': `npm install js-cookie axios`;
 2. Se crea el context en el directorio context/AuthContext:
@@ -357,7 +357,7 @@ function MyApp({ Component, pageProps }) {
 }
 ```
 
-== Autenticándonos en la API usando Axios ==
+# == Autenticándonos en la API usando Axios ==
 
 1. Se agrega la lectura del access_token con axios para posteriormente agregarla a la cookie.
 
@@ -450,7 +450,7 @@ const handleSubmit = (event) => {
     }
 ```
 
-== Guardado del token en una cookie para mantener la sesión ==
+# == Guardado del token en una cookie para mantener la sesión ==
 
 1. Se hace el llamado al servidor para obtener los datos del usuario mediante el envio del token en los headers del llamado:
 2. Luego se guardan en el setUser.
@@ -479,3 +479,50 @@ const useProviderAuth = () => {
         console.log(user);
     };
 ```
+
+# == Implementacion del componente Chart ==
+
+1. Se instalan los plugins: `npm i chart.js react-chartjs-2`.
+2. Se crea el componente chart en el directorio 'components':
+
+- /components/Chart.jsx:
+
+```
+import React from 'react'
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
+import { Bar } from "react-chartjs-2";
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+
+const Chart = ({ ChartData }) => {
+    return (
+        <>
+            <Bar
+                data={ChartData}
+                options={{
+                    title: {
+                        display: true,
+                        text: "Category",
+                        fontSize: 20,
+                    },
+                    legend: {
+                        display: true,
+                        position: "right",
+                    }
+                }}
+
+            />
+        </>
+    )
+}
+
+export default Chart
+```
+# == Integracion del componente chart ==
+1. Se crea la pagina 'dashboard' para poder ver todas nuestras compras luego del checkout.
+2. Se crea el componente 'Dashboard' en component.
+- /components/Dashboar.jsx
+```
+```
+
+/////////// SE DESAVILITO EL LOGIN POR AHORA ??????????????????????????????
