@@ -10,7 +10,13 @@ const Account = () => {
         <div className={styles.MyAccount}>
             <div className={styles['MyAccount-container']}>
                 <h1 className={styles.title}>My account</h1>
-                <Image src={auth?.user?.avatar} width={20} height={100} className={styles.avatar} alt={auth?.user?.name}/>
+                <Image src={auth?.user?.avatar}
+                    height={300}
+                    width={300}
+                    className={styles.avatar}
+                    alt={auth?.user?.name} 
+
+                    />
                 <form action="/" className={styles.form}>
                     <div>
                         <label htmlFor="name" className={styles.label}>
@@ -20,7 +26,7 @@ const Account = () => {
                         <label htmlFor="email" className={styles.label}>
                             Mail
                         </label>
-                        <p className={styles.value}>{auth?.user?.mail}</p>
+                        <p className={styles.value}>{auth?.user?.email}</p>
                         <label htmlFor="password" className={styles.label}>
                             Password
                         </label>
