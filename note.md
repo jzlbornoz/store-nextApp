@@ -518,11 +518,38 @@ const Chart = ({ ChartData }) => {
 
 export default Chart
 ```
+
 # == Integracion del componente chart ==
+
 1. Se crea la pagina 'dashboard' para poder ver todas nuestras compras luego del checkout.
 2. Se crea el componente 'Dashboard' en component.
-- /components/Dashboar.jsx
-```
-```
 
-/////////// SE DESAVILITO EL LOGIN POR AHORA ??????????????????????????????
+- /components/Dashboar.jsx
+
+```
+import AppContext from '@context/AppContext'
+import React, { useContext } from 'react'
+import styles from "../styles/Dashboard.module.scss";
+const Dashboard = () => {
+    const { state } = useContext(AppContext);
+    const { cart } = state;
+    return (
+        <>
+            <section className={styles.Dashboard}>
+            <h2>Dashboard</h2>
+                <div className={styles['Dashboard-List']}>
+                <p>Shopping Items: {cart.length}</p>
+                    {cart.map((item) => (
+                        <div key={item.id} className={styles['Dashboard-List-Item']}>
+                        <p><span>Name:</span> {item.title}</p>
+                        <p><span>Price:</span> {item.price}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+        </>
+    )
+}
+
+export default Dashboard
+```

@@ -12,8 +12,8 @@ const Dashboard = () => {
                 <p>Shopping Items: {cart.length}</p>
                     {cart.map((item) => (
                         <div key={item.id} className={styles['Dashboard-List-Item']}>
-                        <p>{item.title}</p>
-                        <p>{item.price}</p>
+                        <p><span>Name:</span> {item.title}</p>
+                        <p><span>Price:</span> {item.price}</p>
                         </div>
                     ))}
                 </div>

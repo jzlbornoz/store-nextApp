@@ -1,7 +1,6 @@
 @import 'vars';
 
 .Dashboard {
-    border: 1px solid red;
     margin-top: 11vh;
     padding: 10px;
 }
@@ -12,6 +11,12 @@
 .Dashboard-List-Item{
     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
     display: flex;
-    margin: 10px 0px 10px 0px;
+    margin: 20px 0px 20px 0px;
     padding: 5px;
+    justify-content: space-around;
+    border-radius: 7px;
+}
+.Dashboard-List-Item span{
+  color: $--very-light-pink;
+  font-weight: bolder;
 }
