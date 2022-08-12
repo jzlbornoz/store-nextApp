@@ -4,16 +4,16 @@ import { Bar } from "react-chartjs-2";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const Chart = ({ ChartData }) => {
+const Chart = ({ chartData }) => {
     return (
         <>
             <Bar
-                data={ChartData}
+                data={chartData}
                 options={{
                     title: {
                         display: true,
                         text: "Category",
-                        fontSize: 20,
+                        fontSize: 10,
                     },
                     legend: {
                         display: true,

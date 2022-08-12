@@ -553,3 +553,55 @@ const Dashboard = () => {
 
 export default Dashboard
 ```
+
+3. Se agrega el componente chart en el dashboard:
+
+```
+ <Chart chartData={data} className="mb-8 mt-2" />
+```
+
+4. Se crea la constante data que es un objeto que contiene el dataset con los siguientes parametros parametros:
+
+```
+const data = {
+    datasets: [
+      {
+        label: 'Cateogires',
+        data: ['others', 'clothes'],
+        borderWidth: 2,
+        backgroundColor: ['#324485', '#723285', '#7d2056', '#2c7a3d'],
+      },
+    ],
+  };
+```
+
+5. Se agrega la logica para poder mostrar los datos en la grafica:
+
+- Para obtener las categorias de los productos:
+
+```
+  const categoryName = cart?.map((product) => product.category);
+  const categoryCount = categoryName?.map((category) => category.name);
+```
+
+- Se agrega el contador de ocurrencias:
+
+```
+const countOccurencies = (arr) => arr.reduce((prev, curr) => ((prev[curr] = ++prev[curr] || 1), prev),
+    {});
+```
+
+- Se agrega al data:
+
+```
+ const data = {
+    datasets: [
+      {
+        label: 'Cateogires',
+        data: countOccurencies(categoryCount),
+        borderWidth: 2,
+        backgroundColor: ['#324485', '#723285', '#7d2056', '#2c7a3d'],
+      },
+    ],
+  };
+```
