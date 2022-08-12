@@ -5,6 +5,7 @@
 	height: 100vh;
 	display: grid;
 	place-items: center;
+	margin-top: 5vh;
 }
 .title {
 	font-size: $--lg;
@@ -44,4 +45,13 @@
 .order p:nth-child(2) {
 	text-align: end;
 	font-weight: bold;
+}
+
+.Checkout-container a {
+	width: 100%;
+	background-color: $--green;
+	padding: 10px;
+	text-align: center;
+	color: $--white;
+	border-radius: 5px;
 }

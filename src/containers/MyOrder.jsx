@@ -29,7 +29,7 @@ const MyOrder = () => {
 				<div className={styles['my-order-content']}>
 					<div className={styles['my-orders']}>
 						{state.cart.map((product) => (
-							<OrderItem product={product} key={`orderItem-${product.id}`} />
+							<OrderItem product={product} key={`orderItem-${product.id + state.cart}`} />
 						))}
 					</div>
 					<div className={styles.order}>

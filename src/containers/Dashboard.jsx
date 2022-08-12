@@ -1,22 +1,24 @@
-import AppContext from '@context/AppContext'
-import React, { useContext } from 'react'
-import styles from "../styles/Dashboard.module.scss";
+import AppContext from '@context/AppContext';
+import React, { useContext } from 'react';
+import styles from '../styles/Dashboard.module.scss';
 import Image from 'next/image';
 import Chart from '@components/Chart';
 
 const Dashboard = () => {
     const { state } = useContext(AppContext);
     const { cart } = state;
+
+    // Para obtener la suma de todos los precios de articulos
     const sumTotal = () => {
         const reducer = (accumalator, currentValue) => accumalator + currentValue.price;
         const sum = state.cart.reduce(reducer, 0);
         return sum;
     };
-
+    // Para obtener las categorias de los articulos del cart
     const categoryName = cart?.map((product) => product.category);
     const categoryCount = categoryName?.map((category) => category.name);
-    const countOccurencies = (arr) => arr.reduce((prev, curr) => ((prev[curr] = ++prev[curr] || 1), prev),
-        {});
+    // Contador de Ocurrencias para obtener las veces que se repiten los articulos
+    const countOccurencies = (arr) => arr.reduce((prev, curr) => ((prev[curr] = ++prev[curr] || 1), prev), {});
 
     const data = {
         datasets: [
@@ -34,10 +36,10 @@ const Dashboard = () => {
         <>
             <section className={styles.Dashboard}>
                 <h2>Dashboard</h2>
+                <p><span>Shopping Items:</span> {cart.length}</p>
+                <p><span>Total:</span> ${sumTotal()}</p>
+                <Chart chartData={data} className="mb-8 mt-2" />
                 <div className={styles['Dashboard-List']}>
-                    <p>Shopping Items: {cart.length}</p>
-                    <p>Total: ${sumTotal()}</p>
-                    <Chart chartData={data} className="mb-8 mt-2" />
                     {cart.map((item) => (
                         <div key={item.id} className={styles['Dashboard-List-Item']}>
                             <Image src={item?.images[0]} width={50} height={50} alt={item.title} />
@@ -49,7 +51,7 @@ const Dashboard = () => {
                 </div>
             </section>
         </>
-    )
-}
+    );
+};
 
-export default Dashboard
+export default Dashboard;

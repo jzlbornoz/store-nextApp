@@ -1,17 +1,27 @@
 @import 'vars';
 
 .Dashboard {
-    margin-top: 11vh;
+    margin-top: 12vh;
     padding: 10px;
+    color: $--hospital-green;
 }
 .Dashboard h2 {
-    color: $--green;
+    color: $--hospital-green;
+    font-size: 44px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.Dashboard span {
+    color: $--very-light-pink;
+    font-weight: bolder;
 }
 
 .Dashboard-List{
  display: flex;
  flex-direction: column;
  justify-content: space-between;  
+ margin-top: 15px;
 }
 
 .Dashboard-List-Item{
@@ -24,6 +34,7 @@
     border-radius: 7px;
     font-size: 15px;
     border: solid 1px rgba(41, 41, 41, 0.222);
+    color: $--black;
 }
 .Dashboard-List-Item img{
     border-radius: 10px;
