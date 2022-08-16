@@ -605,3 +605,59 @@ const countOccurencies = (arr) => arr.reduce((prev, curr) => ((prev[curr] = ++pr
     ],
   };
 ```
+
+# == Creacion del componente modal y el formproduct ==
+
+1. Se creo el componente modal con su respectivo modulo de estilo:
+
+- /components/Modal.jsx
+
+```
+import React from 'react';
+import styles from "../styles/Modal.module.scss";
+
+const Modal = ({ children, close }) => {
+
+    return (
+        <>
+            <section className={styles.Modal}>
+                <div className={styles.ModalContainer}>
+                    <button type='button' onClick={() => close(false)} className={styles.ModalExit}>X</button>
+                    {children}
+                </div>
+            </section>
+
+        </>
+    )
+}
+
+export { Modal }
+```
+
+- /styles/Modal.module.scss
+
+```
+@import './vars';
+
+.Modal{
+    background-color: rgba(38, 38, 38, 0.609);
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+}
+.ModalContainer{
+    margin: 10vh 10vw 10vh 10vw;
+    background-color: $--white;
+    padding: 20px;
+    position: relative;
+}
+
+.ModalExit{
+    position: absolute;
+    top:0;
+    right: 2px;
+    color: red;
+}
+```
+2. Se crea el componente form product

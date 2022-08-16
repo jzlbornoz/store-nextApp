@@ -1,12 +1,19 @@
 import AppContext from '@context/AppContext';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styles from '../styles/Dashboard.module.scss';
 import Image from 'next/image';
 import Chart from '@components/Chart';
+import { Modal } from '@components/Modal';
+import FormProduct from '@components/FormProduct';
 
 const Dashboard = () => {
     const { state } = useContext(AppContext);
     const { cart } = state;
+    const [open, setOpen] = useState(false);
+
+    const handleModal = () => {
+        setOpen(true);
+    };
 
     // Para obtener la suma de todos los precios de articulos
     const sumTotal = () => {
@@ -31,13 +38,14 @@ const Dashboard = () => {
         ],
     };
     //---
-
     return (
         <>
+            {open && <Modal close={setOpen}><FormProduct /></Modal>}
             <section className={styles.Dashboard}>
                 <h2>Dashboard</h2>
                 <p><span>Shopping Items:</span> {cart.length}</p>
                 <p><span>Total:</span> ${sumTotal()}</p>
+                <button type='button' onClick={() => handleModal()}>Addd</button>
                 <Chart chartData={data} className="mb-8 mt-2" />
                 <div className={styles['Dashboard-List']}>
                     {cart.map((item) => (
@@ -52,6 +60,7 @@ const Dashboard = () => {
             </section>
         </>
     );
+
 };
 
 export default Dashboard;

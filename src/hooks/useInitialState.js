@@ -8,6 +8,7 @@ const initialState = {
 
 const useInitialState = () => {
   const [state, setState] = useState(initialState);
+  
 
   const addToCart = (payload) => {
     setState({
@@ -44,7 +45,7 @@ return {
   addToCart,
   removeFromCart,
   toggleOrder,
-  toggleMenu,
+  toggleMenu
 };
 };
 

@@ -1,0 +1,22 @@
+@import './vars';
+
+.Modal{
+    background-color: rgba(38, 38, 38, 0.609);
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+}
+.ModalContainer{
+    margin: 10vh 10vw 10vh 10vw;
+    background-color: $--white;
+    padding: 20px;
+    position: relative;
+}
+
+.ModalExit{
+    position: absolute;
+    top:0;
+    right: 2px;
+    color: red;
+}
