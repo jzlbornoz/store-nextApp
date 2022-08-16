@@ -1,16 +1,36 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styles from "../styles/FormProduct.module.scss";
 
 const FormProduct = () => {
+
+    const formRef = useRef(null);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const formData = new FormData(formRef.current);
+        const data = {
+            "title": formData.get('title'),
+            "price": parseInt(formData.get('price')),
+            "description": formData.get('description'),
+            "categoryId": parseInt(formData.get('category')),
+            "images": [
+                formData.get('images')
+            ]
+        }
+        console.log(data);
+    }
+
+    // --
     return (
         <section className={styles.FormProduct}>
-            <form action="/" >
+            <form action="/" ref={formRef} onSubmit={handleSubmit}>
                 <label htmlFor="title" >
                     Title
                 </label>
                 <input
                     type="text"
                     name="title"
+                    id="title"
                 />
                 <label htmlFor="price" >
                     Price
@@ -18,8 +38,9 @@ const FormProduct = () => {
                 <input
                     type="number"
                     name="price"
+                    id="price"
                 />
-                <label htmlFor="password">
+                <label htmlFor="category">
                     Category
                 </label>
                 <select
@@ -33,16 +54,24 @@ const FormProduct = () => {
                     <option value="5">Others</option>
                 </select>
                 <label
-                htmlFor="description"
-              >
-                Description
-              </label>
-              <textarea
-                name="description"
-                id="description"
-                autoComplete="description"
-              />
-                <button type='button' className={styles['FormProduct-button']} >
+                    htmlFor="description"
+                >
+                    Description
+                </label>
+                <textarea
+                    name="description"
+                    id="description"
+                    autoComplete="description"
+                />
+                <label htmlFor="images" >
+                    Image
+                </label>
+                <input
+                    type="text"
+                    name="images"
+                    id="images"
+                />
+                <button className={styles['FormProduct-button']} >
                     Add
                 </button>
             </form>

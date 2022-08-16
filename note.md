@@ -606,7 +606,7 @@ const countOccurencies = (arr) => arr.reduce((prev, curr) => ((prev[curr] = ++pr
   };
 ```
 
-# == Creacion del componente modal y el formproduct ==
+# == Creacion del componente modal ==
 
 1. Se creo el componente modal con su respectivo modulo de estilo:
 
@@ -660,4 +660,106 @@ export { Modal }
     color: red;
 }
 ```
-2. Se crea el componente form product
+
+## == Contruccion del componente FormProduct ==
+
+1.  Se crea el componente:
+
+- /components/FormProduct.jsx
+
+```
+import React from 'react';
+import styles from "../styles/FormProduct.module.scss";
+
+const FormProduct = () => {
+   return (
+       <section className={styles.FormProduct}>
+           <form action="/" >
+               <label htmlFor="title" >
+                   Title
+               </label>
+               <input
+                   type="text"
+                   name="title"
+               />
+               <label htmlFor="price" >
+                   Price
+               </label>
+               <input
+                   type="number"
+                   name="price"
+               />
+               <label htmlFor="password">
+                   Category
+               </label>
+               <select
+                   id="category"
+                   name="category"
+                   autoComplete="category-name">
+                   <option value="1">Clothes</option>
+                   <option value="2">Electronics</option>
+                   <option value="3">Furniture</option>
+                   <option value="4">Toys</option>
+                   <option value="5">Others</option>
+               </select>
+               <label
+                   htmlFor="description"
+               >
+                   Description
+               </label>
+               <textarea
+                   name="description"
+                   id="description"
+                   autoComplete="description"
+               />
+               <button type='button' className={styles['FormProduct-button']} >
+                   Add
+               </button>
+           </form>
+       </section >
+   )
+}
+
+export default FormProduct
+```
+
+2. Se agrega el componente al dashboard como hijo del modal.
+
+- /containers/Dashboard.jsx
+
+```
+ return (
+        <>
+            {open && <Modal close={setOpen}><FormProduct /></Modal>}
+```
+
+3. Se agrega el ref al form para poder capturar toda la informacion que se obtenga en el formulario.
+
+- /components/FormProduct.jsx
+
+```
+  const formRef = useRef(null);
+```
+
+4. Se crea el handleSubmit que permite recibir la informacion y enviarla a la estructura:
+
+```
+  const handleSubmit = (event) => {
+        event.preventDefault();
+        const formData = new FormData(formRef.current);
+        const data = {
+            "title": formData.get('title'),
+            "price": parseInt(formData.get('price')),
+            "description": formData.get('description'),
+            "categoryId": parseInt(formData.get('category')),
+            "images": [
+                formData.get('images')
+            ]
+        }
+        console.log(data);
+    }
+```
+
+- El event.preventDefault permite prevenir las acciones por defecto del html.
+- Con el formData se encapsulan los datos.
+- El data es parte del estandar de la api, y se esta utilizando para destrucutrar la informacion.
