@@ -11,10 +11,10 @@
 }
 
 .FormProduct form input, .FormProduct form select {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     padding: 5px;
     background-color: $--text-input-field;
-	border: none;
+	border: solid 1px $--very-light-pink;
 	border-radius: 8px;
 	height: 30px;
 	font-size: $--md;
@@ -23,14 +23,18 @@
     outline: none;
 }
 
+.FormProduct form option {
+    font-size: 10px;
+}
+
 .FormProduct form label {
 	font-size: $--sm;
 	font-weight: bold;
-	margin-bottom: 4px;
+	margin-bottom: 10px;
 }
 
 .FormProduct form textarea {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     padding: 5px;
     background-color: $--text-input-field;
 	border: none;
@@ -44,4 +48,12 @@
     min-width: 100%;
     max-width: 100%;
 
+}
+
+.FormProduct-button {
+    border: none;
+    background-color: $--hospital-green;
+    padding: 10px 18px 10px 18px;
+    color: $--white;
+    border-radius: 5px;
 }

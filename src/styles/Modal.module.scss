@@ -12,11 +12,15 @@
     background-color: $--white;
     padding: 20px;
     position: relative;
+    border-radius: 10px;
 }
 
 .ModalExit{
     position: absolute;
-    top:0;
-    right: 2px;
-    color: red;
+    top:5px;
+    right: 5px;
+    color: $--very-light-pink;
+    border: none;
+    background: none;
+    font-size: 18px;
 }

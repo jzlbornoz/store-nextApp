@@ -42,8 +42,8 @@ const FormProduct = () => {
                 id="description"
                 autoComplete="description"
               />
-                <button>
-                    ADD
+                <button type='button' className={styles['FormProduct-button']} >
+                    Add
                 </button>
             </form>
         </section >

@@ -45,7 +45,7 @@ const Dashboard = () => {
                 <h2>Dashboard</h2>
                 <p><span>Shopping Items:</span> {cart.length}</p>
                 <p><span>Total:</span> ${sumTotal()}</p>
-                <button type='button' onClick={() => handleModal()}>Addd</button>
+                <button type='button' onClick={() => handleModal()} className={styles['Dashboard-AddButton']}>Add</button>
                 <Chart chartData={data} className="mb-8 mt-2" />
                 <div className={styles['Dashboard-List']}>
                     {cart.map((item) => (
