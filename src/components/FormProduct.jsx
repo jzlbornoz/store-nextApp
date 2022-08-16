@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
-import styles from "../styles/FormProduct.module.scss";
+import addProduct from '@services/api/product';
+import styles from "@styles/FormProduct.module.scss";
 
 const FormProduct = () => {
 
@@ -17,7 +18,9 @@ const FormProduct = () => {
                 formData.get('images')
             ]
         }
-        console.log(data);
+        addProduct(data).then((response) => {
+            console.log(response);
+        })
     }
 
     // --

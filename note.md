@@ -661,7 +661,7 @@ export { Modal }
 }
 ```
 
-## == Contruccion del componente FormProduct ==
+# == Contruccion del componente FormProduct ==
 
 1.  Se crea el componente:
 
@@ -763,3 +763,71 @@ export default FormProduct
 - El event.preventDefault permite prevenir las acciones por defecto del html.
 - Con el formData se encapsulan los datos.
 - El data es parte del estandar de la api, y se esta utilizando para destrucutrar la informacion.
+
+# == Inserción de los datos del producto en la API ==
+
+1. Se crea el servicio que se va a encargar de enviar los productos a la API.
+2. Se crea la funcion asincrona addProduct, la cual recibe un body es decir la estrcutura o cuerpo de la informacion que se recibe.
+3. En dicha funcion se crea el objeto 'config' que tiene toda la estructura de configuracion, como el header.
+
+```
+ const config = {
+        headers: {
+            accept: '*/*',
+            'Content-Type': 'application/json',
+        },
+    };
+
+```
+
+4. Se crea la constante 'response' en el cual tiene el metodo axios.post en el que se hace el envio de la informacion:
+
+```
+const response = await axios.post(endPoints.products.addProducts, body, config);
+```
+
+5. Se retorna la informacion con response.data ya que es la estructura que regresa axios.
+
+- /services/api/product.js
+
+```
+import axios from 'axios';
+import endPoints from '@services/api';
+
+const addProduct = async (body) => {
+    const config = {
+        headers: {
+            accept: '*/*',
+            'Content-Type': 'application/json',
+        },
+    };
+    const response = await axios.post(endPoints.products.addProducts, body, config);
+    return response.data
+};
+
+export { addProduct };
+
+```
+
+6. Se importa en el componente 'FormProduct' y se consume pasandole la data de dicho formulario.
+
+- /component/FormProduct.jsx
+
+```
+const handleSubmit = (event) => {
+        event.preventDefault();
+        const formData = new FormData(formRef.current);
+        const data = {
+            "title": formData.get('title'),
+            "price": parseInt(formData.get('price')),
+            "description": formData.get('description'),
+            "categoryId": parseInt(formData.get('category')),
+            "images": [
+                formData.get('images')
+            ]
+        }
+        addProduct(data).then((response) => {
+            console.log(response);
+        })
+    }
+```
