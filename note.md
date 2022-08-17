@@ -982,3 +982,28 @@ const Dashboard = () => {
 ```
 
 # == Implementación de nuestro componente Alert ==
+
+1. En formProduct, en la funcion addProduct se hace el llamado a setAlert() y el setOpen:
+
+- /components/FormProduct.jsx
+
+```
+addProduct(data)
+            .then(() => {
+                setAlert({
+                    active: true,
+                    message: 'Product added succesfully',
+                    type: 'success',
+                    autoClose: true,
+                });
+                setOpen(false);
+            })
+            .catch((err) => {
+                setAlert({
+                    active: true,
+                    message: err.message,
+                    type: 'error',
+                    autoClose: true,
+                });
+            });
+```

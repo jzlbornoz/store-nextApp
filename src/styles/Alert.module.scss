@@ -1,4 +1,19 @@
+@import './vars';
+
 .Alert {
     display: flex;
-    border: solid 1px red;
+    color: $--white;
+    border-radius: 10px;
+    background-color: $--hospital-green;
+    justify-content: space-around;
+    border: solid 1px $--green;
+    font-size: 18px;
+    margin: 5px;
+    align-items: center;
+}
+.Alert-button{
+    background: none;
+    border: none;
+    color: $--white;
+    font-size: 18px;
 }
