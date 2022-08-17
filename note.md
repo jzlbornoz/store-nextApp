@@ -831,3 +831,154 @@ const handleSubmit = (event) => {
         })
     }
 ```
+
+# == Creación del componente Alert ==
+
+1. Se crea el componente 'alert.jsx' que recibe dos parametros el alert y el handleClose.
+
+- /components/Alert.jsx
+
+```
+import React from 'react';
+import styles from '@styles/Alert.module.scss';
+
+const Alert = ({ alert, handleClose }) => {
+    return (
+        <section className={styles.Alert}>
+            <div className={styles['Alert-content']}>
+                <p>{alert.message}</p>
+            </div>
+            <button type="button" className={styles['Alert-button']} onClick={handleClose}>
+                X
+            </button>
+        </section>
+    );
+};
+
+export { Alert };
+```
+
+2. Se crea la logica para que se cierre automaticamente:
+3. Se agrega la validacion para saber si el alert esta activo y asi mostrar la estructura
+
+```
+import React from 'react';
+import styles from '@styles/Alert.module.scss';
+
+const Alert = ({ alert, handleClose }) => {
+    if (alert && alert?.autoClose) {
+        setTimeout(() => {
+            handleClose();
+        }, 9000)
+    }
+
+    return (
+        <>
+            {alert.active && (
+                <section className={styles.Alert}>
+                    <div className={styles['Alert-content']}>
+                        <p>{alert.message}</p>
+                    </div>
+                    <button type="button" className={styles['Alert-button']} onClick={handleClose}>
+                        X
+                    </button>
+                </section>
+            )}
+        </>
+
+    );
+};
+
+export { Alert };
+
+```
+
+4. Se crea el customHook useAlert.js, que contiene los defaultOptions, y el togleAlert.
+
+```
+import { useState } from 'react';
+
+const useAlert = (options) => {
+  const defaultOptions = {
+    active: false,
+    message: '',
+    type: '',
+    autoClose: true,
+  };
+  const [alert, setAlert] = useState({
+    ...defaultOptions,
+    ...options,
+  });
+  const togleAlert = () => {
+    setAlert(!alert.active);
+  };
+
+  // ---
+  return {
+    alert,
+    setAlert,
+    togleAlert,
+  };
+};
+
+export default useAlert;
+
+```
+
+5. Se integra el alert en el dashboard
+
+```
+...
+...
+import { Alert } from '@components/Alert';
+import useAlert from '@hooks/useAlert';
+
+const Dashboard = () => {
+    const { state } = useContext(AppContext);
+    const { cart } = state;
+    const [open, setOpen] = useState(false);
+    const { alert, setAlert, togleAlert } = useAlert();
+
+    const handleModal = () => {
+        setOpen(true);
+    };
+
+    const sumTotal = () => {
+        const reducer = (accumalator, currentValue) => accumalator + currentValue.price;
+        const sum = state.cart.reduce(reducer, 0);
+        return sum;
+    };
+    const categoryName = cart?.map((product) => product.category);
+    const categoryCount = categoryName?.map((category) => category.name);
+    const countOccurencies = (arr) => arr.reduce((prev, curr) => ((prev[curr] = ++prev[curr] || 1), prev), {});
+
+    const data = {
+        datasets: [
+            {
+                label: 'Categories',
+                data: countOccurencies(categoryCount),
+                borderWidth: 2,
+                backgroundColor: ['#324485', '#723285', '#7d2056', '#2c7a3d'],
+            },
+        ],
+    };
+    //---
+    return (
+        <>
+            {open && (
+                <Modal close={setOpen}>
+                    <FormProduct setAlert={setAlert} />
+                </Modal>
+            )}
+            <section className={styles.Dashboard}>
+                <Alert alert={alert} handleClose={togleAlert} />
+                <h2>Dashboard</h2>
+                <p>
+                    <span>Shopping Items:</span> {cart.length}
+                    ...
+                    ...
+                    ...
+                    ...
+```
+
+# == Implementación de nuestro componente Alert ==

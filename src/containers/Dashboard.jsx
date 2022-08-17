@@ -5,11 +5,14 @@ import Image from 'next/image';
 import Chart from '@components/Chart';
 import { Modal } from '@components/Modal';
 import FormProduct from '@components/FormProduct';
+import { Alert } from '@components/Alert';
+import useAlert from '@hooks/useAlert';
 
 const Dashboard = () => {
     const { state } = useContext(AppContext);
     const { cart } = state;
     const [open, setOpen] = useState(false);
+    const { alert, setAlert, togleAlert } = useAlert();
 
     const handleModal = () => {
         setOpen(true);
@@ -40,12 +43,23 @@ const Dashboard = () => {
     //---
     return (
         <>
-            {open && <Modal close={setOpen}><FormProduct /></Modal>}
+            {open && (
+                <Modal close={setOpen}>
+                    <FormProduct setOpen={setOpen} setAlert={setAlert} />
+                </Modal>
+            )}
             <section className={styles.Dashboard}>
+                <Alert alert={alert} handleClose={togleAlert} />
                 <h2>Dashboard</h2>
-                <p><span>Shopping Items:</span> {cart.length}</p>
-                <p><span>Total:</span> ${sumTotal()}</p>
-                <button type='button' onClick={() => handleModal()} className={styles['Dashboard-AddButton']}>Add</button>
+                <p>
+                    <span>Shopping Items:</span> {cart.length}
+                </p>
+                <p>
+                    <span>Total:</span> ${sumTotal()}
+                </p>
+                <button type="button" onClick={() => handleModal()} className={styles['Dashboard-AddButton']}>
+                    Add
+                </button>
                 <Chart chartData={data} className="mb-8 mt-2" />
                 <div className={styles['Dashboard-List']}>
                     {cart.map((item) => (
@@ -60,7 +74,6 @@ const Dashboard = () => {
             </section>
         </>
     );
-
 };
 
 export default Dashboard;

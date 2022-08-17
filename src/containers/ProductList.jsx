@@ -3,11 +3,10 @@ import ProductItem from '@components/ProductItem';
 import useGetProducts from '@hooks/useGetProducts';
 import styles from '@styles/ProductList.module.scss';
 import { ProductListSkeleton } from '@components/ProductListSkeleton';
-
-const API = 'https://api.escuelajs.co/api/v1/products';
+import endPoints from '@services/api';
 
 const ProductList = () => {
-	const products = useGetProducts(API);
+	const products = useGetProducts(endPoints.products.getAllProduct);
 	if (products.length >= 10) {
 		return (
 			<section className={styles['main-container']}>
