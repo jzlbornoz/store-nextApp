@@ -5,7 +5,7 @@ const useAlert = (options) => {
     active: false,
     message: '',
     type: '',
-    autoClose: false,
+    autoClose: true,
   };
   const [alert, setAlert] = useState({
     ...defaultOptions,
@@ -14,7 +14,6 @@ const useAlert = (options) => {
   const togleAlert = () => {
     setAlert(!alert.active);
   };
-
   // ---
   return {
     alert,

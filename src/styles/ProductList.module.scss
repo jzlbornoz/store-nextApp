@@ -1,7 +1,8 @@
 @import "vars";
 
 .main-container{
-  padding-top: 30px;
+  padding-top: 20px;
+  margin: 10vh 0px 5vh 0px;
 }
 
 .ProductList {
@@ -9,7 +10,7 @@
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
   place-content: center;
-  margin: 6em 0 0 0;
+  margin-top: 30px;
 }
 
 

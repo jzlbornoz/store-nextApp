@@ -9,7 +9,12 @@ const addProduct = async (body) => {
         },
     };
     const response = await axios.post(endPoints.products.addProducts, body, config);
-    return response.data
+    return response.data;
 };
 
-export default addProduct ;
+const deleteProduct = async (id) => {
+    const response = await axios.delete(endPoints.products.deleteProduct(id));
+    return response.data;
+};
+
+export { addProduct, deleteProduct };

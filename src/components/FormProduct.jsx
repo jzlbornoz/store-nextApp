@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import addProduct from '@services/api/product';
+import { addProduct } from '@services/api/product';
 import styles from '@styles/FormProduct.module.scss';
 
 const FormProduct = ({ setOpen, setAlert }) => {

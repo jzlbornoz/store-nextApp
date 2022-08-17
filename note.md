@@ -1007,3 +1007,35 @@ addProduct(data)
                 });
             });
 ```
+
+# == Eliminado de productos en la API ==
+
+1. Se crea el servicio en product.js
+
+- /services/products.js
+
+```
+const deleteProduct = async (id) => {
+    const response = await axios.delete(endPoints.products.deleteProduct(id));
+    return response.data;
+};
+```
+
+2. Se crea el handleDelete en el componente 'productItem.jsx' y se agrega al boton de eliminar:
+
+- /components/ProductItem.jsx
+
+```
+const handleDelete = (id) => {
+		deleteProduct(id).then(() => {
+			setAlert({
+				active: true,
+				message: 'Delete product successfully',
+				type: 'error',
+				autoClose: true,
+			});
+		})
+	};
+
+```
+3. Se agrega el alert en el 'ProductList'.

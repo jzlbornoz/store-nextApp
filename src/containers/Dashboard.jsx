@@ -58,7 +58,7 @@ const Dashboard = () => {
                     <span>Total:</span> ${sumTotal()}
                 </p>
                 <button type="button" onClick={() => handleModal()} className={styles['Dashboard-AddButton']}>
-                    Add
+                    Add Product
                 </button>
                 <Chart chartData={data} className="mb-8 mt-2" />
                 <div className={styles['Dashboard-List']}>

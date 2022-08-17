@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useGetProducts = (API) => {
+const useGetProducts = (API , alert) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -14,7 +14,8 @@ const useGetProducts = (API) => {
         .catch((err) => console.log(err));
     };
     getPromise();
-  }, []);
+  }, [alert]);
+  
   return products;
 };
 

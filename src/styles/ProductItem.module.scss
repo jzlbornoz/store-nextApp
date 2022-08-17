@@ -18,13 +18,15 @@
 	margin-top: 12px;
 	padding: 10px;
 }
+.product-info-text{
+	width: 40%;
+}
 .product-info figure {
 	margin: 0;
+	width: 30px;
+	height: 30px;
 }
-.product-info figure img {
-	width: 35px;
-	height: 35px;
-}
+
 .product-info div p:nth-child(1) {
 	font-weight: bold;
 	font-size: $--md;
@@ -32,7 +34,7 @@
 	margin-bottom: 4px;
 }
 .product-info div p:nth-child(2) {
-	font-size: $--sm;
+	font-size: 10px;
 	margin-top: 0;
 	margin-bottom: 0;
 	color: $--very-light-pink;
@@ -43,6 +45,13 @@
 
 .disabled {
 	cursor: not-allowed;
+}
+
+.ProductInfo-button{
+	background: none;
+	border: none;
+	color: $--very-light-pink;
+	font-weight: bold;
 }
 
 @media (max-width: 640px) {
