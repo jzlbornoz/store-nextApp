@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const useAlert = (options) => {
   const defaultOptions = {
-    active: true,
+    active: false,
     message: '',
     type: '',
     autoClose: false,
