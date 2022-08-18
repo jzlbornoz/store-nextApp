@@ -60,7 +60,7 @@ const Dashboard = () => {
                 <button type="button" onClick={() => handleModal()} className={styles['Dashboard-AddButton']}>
                     Add Product
                 </button>
-                <Chart chartData={data} className="mb-8 mt-2" />
+                <Chart chartData={data} className={styles['Dashboard-chart']} />
                 <div className={styles['Dashboard-List']}>
                     {cart.map((item) => (
                         <div key={item.id} className={styles['Dashboard-List-Item']}>

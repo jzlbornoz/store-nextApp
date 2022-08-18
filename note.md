@@ -1038,4 +1038,56 @@ const handleDelete = (id) => {
 	};
 
 ```
+
 3. Se agrega el alert en el 'ProductList'.
+
+# == Creación y cargado de datos para actualizar un producto ==
+
+1. Se crea el directorio dashboard en pages, entoces la pagina llamada 'dashboars.js' pasa a ser el 'index.js' de dicho directorio, posteriormente se crea el directorio edit con un '[id].js':
+
+- Pagina dashboard: /pages/dashboard/index.js
+- Pagina edit: /pages/dashboard/edit/id
+
+2. En la pagina edit se obtiene el id del producto que se manda mediante la url, y se lee mediante el useEffect
+
+- /pages/dashboard/edit/id:
+
+```
+import React, { useEffect } from 'react';
+import FormProduct from '@components/FormProduct';
+import { useRouter } from 'next/router';
+
+const Edit = () => {
+    const router = useRouter();
+
+    useEffect(() => {
+        const { id } = router.query;
+        console.log(id);
+    }, [router?.isReady]);
+
+    return (
+        <>
+            <FormProduct />
+        </>
+    );
+};
+
+export default Edit;
+
+```
+
+3. Posteriormente se agrega el llamado a la API en el useEffect con axios:
+
+```
+
+    useEffect(() => {
+        const { id } = router.query;
+
+        async function getProduct() {
+            const response = await axios.get(endPoints.products.getProduct(id));
+            setProduct(response.data);
+        };
+        getProduct();
+    }, [router?.isReady]);
+```
+4. Se le pasa el product a FormProduct median props para consumirlo en los defaultValues de los inputs.
