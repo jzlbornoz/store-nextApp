@@ -1090,4 +1090,78 @@ export default Edit;
         getProduct();
     }, [router?.isReady]);
 ```
+
 4. Se le pasa el product a FormProduct median props para consumirlo en los defaultValues de los inputs.
+
+# == Actualizado del producto en la API ==
+
+1. Se agrega una validacion en el handleSubmit de formProduct para saber si es addProduct o editProduct:
+
+- /components/FormProducts
+
+```
+const handleSubmit = (event) => {
+        event.preventDefault();
+        const formData = new FormData(formRef.current);
+        const data = {
+            title: formData.get('title'),
+            price: parseInt(formData.get('price')),
+            description: formData.get('description'),
+            categoryId: parseInt(formData.get('category')),
+            images: [formData.get('images').name],
+        };
+
+        if (product) {
+            console.log(data);
+        } else {
+            addProduct(data)
+                .then(() => {
+                    setAlert({
+                        active: true,
+                        message: 'Product added succesfully',
+                        type: 'success',
+                        autoClose: false,
+                    });
+                    setOpen(false);
+                })
+                .catch((err) => {
+                    setAlert({
+                        active: true,
+                        message: err.message,
+                        type: 'error',
+                        autoClose: false,
+                    });
+                });
+        }
+
+    };
+```
+
+2. Se crea la funcion updateProduct en /servicio/product.js
+
+```
+const updateProduct = async (id, body) => {
+    const config = {
+        headers: {
+            accept: '*/*',
+            'Content-Type': 'application/json',
+        },
+    };
+    const response = await axios.put(endPoints.products.updateProduct(id), body, config);
+    return response.data;
+};
+```
+
+3. Se agrega el updateProduct en la validacion del handleSubmit.
+
+4. Se agrega el router.push a donde se quiera regirigir luego de hacer el update, en este caso es '/'.
+
+```
+...
+...
+        if (product) {
+             updateProduct(product.id, data).then(() => {
+               router.push('/');
+            });
+        } else { ...
+```

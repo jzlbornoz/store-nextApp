@@ -44,6 +44,14 @@
   color: $--very-light-pink;
   font-weight: bolder;
 }
+
+.Dashboard-List-Item a {
+    background-color: $--very-light-pink;
+    padding: 4px;
+    border-radius: 7px;
+    color: $--white;
+}
+
 .Dashboard-AddButton{
     background-color: $--hospital-green;
     padding: 5px 15px 5px 15px;

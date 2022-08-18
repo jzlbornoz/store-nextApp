@@ -7,6 +7,7 @@ import { Modal } from '@components/Modal';
 import FormProduct from '@components/FormProduct';
 import { Alert } from '@components/Alert';
 import useAlert from '@hooks/useAlert';
+import Link from 'next/link';
 
 const Dashboard = () => {
     const { state } = useContext(AppContext);
@@ -68,6 +69,7 @@ const Dashboard = () => {
                             <p> {item.title}</p>
                             <p>${item.price}</p>
                             <p>{item.category.name}</p>
+                            <Link href={`/dashboard/edit/${item.id}`}>Edit</Link>
                         </div>
                     ))}
                 </div>
