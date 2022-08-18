@@ -5,6 +5,7 @@ import addToCartImage from '@icons/bt_add_to_cart.svg';
 import addedToCartImage from '@icons/bt_added_to_cart.svg';
 import styles from '@styles/ProductItem.module.scss';
 import Link from 'next/link';
+import placeholder from 'assets/icons/placeholder.jpg';
 import { deleteProduct } from '@services/api/product';
 
 
@@ -30,8 +31,19 @@ const ProductItem = ({ product, setAlert }) => {
 	return (
 		<div className={styles.ProductItem}>
 			{product.images[0]
-				&& <Link href={`/product/${product.id}`}>
+				?
+				<Link href={`/product/${product.id}`}>
 					<Image src={product.images[0]}
+						width={240}
+						height={240}
+						alt={product.title}
+						loader={() => product.images[0]}
+						unoptimized={true}
+						loading='lazy'
+					/></Link>
+				:
+				<Link href={`/product/${product.id}`}>
+					<Image src={placeholder}
 						width={240}
 						height={240}
 						alt={product.title}
