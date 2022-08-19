@@ -1179,3 +1179,6 @@ const updateProduct = async (id, body) => {
     }
 ```
 2. Se utiliza en el boton de log out del menu.
+
+# == Creacion de la pagina sendOrder ==
+1. Se crea el directorio en pages, y el componente. 
