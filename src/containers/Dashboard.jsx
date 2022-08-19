@@ -1,5 +1,5 @@
-import AppContext from '@context/AppContext';
-import React, { useContext, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styles from '../styles/Dashboard.module.scss';
 import Image from 'next/image';
 import Chart from '@components/Chart';
@@ -7,12 +7,13 @@ import { Modal } from '@components/Modal';
 import FormProduct from '@components/FormProduct';
 import { Alert } from '@components/Alert';
 import useAlert from '@hooks/useAlert';
+import endPoints from '@services/api';
 import Link from 'next/link';
-import { ProductEmpty } from '@components/ProductEmpty';
+import placeholder from 'assets/icons/placeholder.jpg';
+import { ProductListSkeleton } from '@components/ProductListSkeleton';
+import { deleteProduct } from '@services/api/product';
 
 const Dashboard = () => {
-    const { state } = useContext(AppContext);
-    const { cart } = state;
     const [open, setOpen] = useState(false);
     const { alert, setAlert, togleAlert } = useAlert();
 
@@ -20,11 +21,28 @@ const Dashboard = () => {
         setOpen(true);
     };
 
+    const [cart, setCart] = useState([]);
+
+    useEffect(() => {
+        async function getProducts() {
+            const response = await axios.get(endPoints.products.getAllProduct);
+            setCart(response.data);
+        }
+        try {
+            getProducts();
+        } catch (error) {
+            console.log(error);
+        }
+    }, [alert]);
+
+
+
     // Para obtener la suma de todos los precios de articulos
     const sumTotal = () => {
         const reducer = (accumalator, currentValue) => accumalator + currentValue.price;
-        const sum = state.cart.reduce(reducer, 0);
-        return sum;
+        const sum = cart.reduce(reducer, 0);
+        const sumAverage = parseInt(sum / cart.length);
+        return sumAverage;
     };
     // Para obtener las categorias de los articulos del cart
     const categoryName = cart?.map((product) => product.category);
@@ -42,9 +60,20 @@ const Dashboard = () => {
             },
         ],
     };
-    //---
 
-    if (cart.length > 0) {
+    const handleDelete = (id) => {
+        deleteProduct(id).then(() => {
+            setAlert({
+                active: true,
+                message: 'Delete product successfully',
+                type: 'error',
+                autoClose: true,
+            });
+        })
+    };
+
+    //---
+    if (cart.length > 1) {
         return (
             <>
                 {open && (
@@ -59,22 +88,43 @@ const Dashboard = () => {
                         <span>Shopping Items:</span> {cart.length}
                     </p>
                     <p>
-                        <span>Total:</span> ${sumTotal()}
+                        <span>Average per item:</span> ${sumTotal()}
                     </p>
                     <button type="button" onClick={() => handleModal()} className={styles['Dashboard-AddButton']}>
                         Add Product
                     </button>
-                    <div className={styles['Dashboard-chart']} >
+                    <div className={styles['Dashboard-chart']}>
                         <Chart chartData={data} />
                     </div>
                     <div className={styles['Dashboard-List']}>
                         {cart.map((item) => (
                             <div key={item.id} className={styles['Dashboard-List-Item']}>
-                                <Image src={item?.images[0]} width={50} height={50} alt={item.title} />
-                                <p> {item.title}</p>
+                                {item.images[0]
+                                    ?
+                                    <Link href={`/product/${item.id}`}>
+                                        <Image src={item.images[0]}
+                                            width={50}
+                                            height={50}
+                                            alt={item.title}
+                                            loader={() => item.images[0]}
+                                            unoptimized={true}
+                                            loading='lazy'
+                                        /></Link>
+                                    :
+                                    <Link href={`/product/${item.id}`}>
+                                        <Image src={placeholder}
+                                            width={50}
+                                            height={50}
+                                            alt={item.title}
+                                            loader={() => item.images[0]}
+                                            unoptimized={true}
+                                            loading='lazy'
+                                        /></Link>}
+                                <p> {item.id}</p>
                                 <p>${item.price}</p>
                                 <p>{item.category.name}</p>
                                 <Link href={`/dashboard/edit/${item.id}`}>Edit</Link>
+                                <button onClick={() => handleDelete(item.id)}>Delete</button>
                             </div>
                         ))}
                     </div>
@@ -82,12 +132,7 @@ const Dashboard = () => {
             </>
         );
     } else {
-        return (
-            <section className={styles.Dashboard}>
-                <ProductEmpty />
-            </section>
-
-        )
+        return <ProductListSkeleton />
     }
 
 };

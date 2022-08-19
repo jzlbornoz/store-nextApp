@@ -3,6 +3,7 @@ import OrderItem from '@components/OrderItem';
 import styles from '@styles/Checkout.module.scss';
 import AppContext from '@context/AppContext';
 import Link from 'next/link';
+import { ProductEmpty } from '@components/ProductEmpty';
 
 const CheckoutPage = () => {
   const { state } = useContext(AppContext);
@@ -31,8 +32,8 @@ const CheckoutPage = () => {
             {cart.map((product) => (
               <OrderItem product={product} key={product.id + 12} />
             ))}
-            <Link href='/'><button className={styles['Checkout-container-buy']}>Card</button></Link>
-            <Link href='/'><button className={styles['Checkout-container-paypal']}>PayPal</button></Link>
+            <Link href='/send'><button className={styles['Checkout-container-buy']}>Card</button></Link>
+            <Link href='/send'><button className={styles['Checkout-container-paypal']}>PayPal</button></Link>
           </div>
         </div>
       </>
@@ -41,7 +42,7 @@ const CheckoutPage = () => {
     return (
       <>
         <div className={styles.Checkout}>
-          <h2>Haz tu pedido</h2>
+          <ProductEmpty />
         </div>
       </>
     );

@@ -6,10 +6,10 @@ import addedToCartImage from '@icons/bt_added_to_cart.svg';
 import styles from '@styles/ProductItem.module.scss';
 import Link from 'next/link';
 import placeholder from 'assets/icons/placeholder.jpg';
-import { deleteProduct } from '@services/api/product';
 
 
-const ProductItem = ({ product, setAlert }) => {
+
+const ProductItem = ({ product }) => {
 	const { state, addToCart } = useContext(AppContext);
 
 	const handleClick = (item) => {
@@ -17,16 +17,7 @@ const ProductItem = ({ product, setAlert }) => {
 		addToCart(item);
 	};
 
-	const handleDelete = (id) => {
-		deleteProduct(id).then(() => {
-			setAlert({
-				active: true,
-				message: 'Delete product successfully',
-				type: 'error',
-				autoClose: true,
-			});
-		})
-	};
+
 
 	return (
 		<div className={styles.ProductItem}>
@@ -79,7 +70,6 @@ const ProductItem = ({ product, setAlert }) => {
 							)}
 					</figure>
 				</div>
-				<button type='button' onClick={() => handleDelete(product.id)} className={styles['ProductInfo-button']}>X</button>
 			</div>
 		</div>
 	);
