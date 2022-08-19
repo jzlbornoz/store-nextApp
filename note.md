@@ -1334,3 +1334,5 @@ const Dashboard = () => {
 
 export default Dashboard;
 ```
+# == Creacion de paginas, password, recovery y create account == 
+1. Se integraron las platillas de templates.

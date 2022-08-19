@@ -60,9 +60,11 @@ const LoginPage = () => {
                         <button onClick={handleSubmit} className={`${styles['primary-button']} ${styles['login-button']}`}>
                             Log in
                         </button>
-                        <Link href="/">Forgot my password</Link>
+                        <Link href="/password">Forgot my password</Link>
                     </form>
-                    <button className={`${styles['secondary-button']} ${styles['signup-button']}`}>Sign up</button>
+                    <Link href='/createAccount'>
+                        <button className={`${styles['secondary-button']} ${styles['signup-button']}`}>Sign up</button>
+                    </Link>
                 </div>
             </div>
         </>
