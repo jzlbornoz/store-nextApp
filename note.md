@@ -1165,3 +1165,17 @@ const updateProduct = async (id, body) => {
             });
         } else { ...
 ```
+
+# == Implementación del logout == 
+1. Se crea la funcion en el hook useAuth:
+- /hooks/useAuth
+```
+  const logout = () => {
+        Cookies.remove('token');
+        setUser(null);
+        delete axios.defaults.headers.Authorization;
+       router.push('/');
+
+    }
+```
+2. Se utiliza en el boton de log out del menu.
