@@ -23,11 +23,12 @@
 }
 .title-container img {
   transform: rotate(180deg);
-  margin-right: 14px;
 }
 .title {
   font-size: $--lg;
   font-weight: bold;
+  color: $--very-light-pink;
+  margin-left: 10px;
 }
 
 .my-order-content {
@@ -70,7 +71,7 @@
   font-weight: bold;
 }
 
-.primary-button {
+.primary-button, .secundary-button {
   background-color: $--hospital-green;
   border-radius: 8px;
   border: none;
@@ -83,12 +84,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
+}
+.secundary-button{
+  background-color: $--very-light-pink;
 }
 .primary-button:hover{
   background-color: $--white;
   border: 1px solid $--hospital-green;
   color: $--hospital-green;
 }
+
 
 @media (max-width: 640px) {
   .MyOrder {

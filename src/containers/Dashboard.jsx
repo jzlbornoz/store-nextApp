@@ -8,6 +8,7 @@ import FormProduct from '@components/FormProduct';
 import { Alert } from '@components/Alert';
 import useAlert from '@hooks/useAlert';
 import Link from 'next/link';
+import { ProductEmpty } from '@components/ProductEmpty';
 
 const Dashboard = () => {
     const { state } = useContext(AppContext);
@@ -42,40 +43,53 @@ const Dashboard = () => {
         ],
     };
     //---
-    return (
-        <>
-            {open && (
-                <Modal close={setOpen}>
-                    <FormProduct setOpen={setOpen} setAlert={setAlert} />
-                </Modal>
-            )}
+
+    if (cart.length > 0) {
+        return (
+            <>
+                {open && (
+                    <Modal close={setOpen}>
+                        <FormProduct setOpen={setOpen} setAlert={setAlert} />
+                    </Modal>
+                )}
+                <section className={styles.Dashboard}>
+                    <Alert alert={alert} handleClose={togleAlert} />
+                    <h2>Dashboard</h2>
+                    <p>
+                        <span>Shopping Items:</span> {cart.length}
+                    </p>
+                    <p>
+                        <span>Total:</span> ${sumTotal()}
+                    </p>
+                    <button type="button" onClick={() => handleModal()} className={styles['Dashboard-AddButton']}>
+                        Add Product
+                    </button>
+                    <div className={styles['Dashboard-chart']} >
+                        <Chart chartData={data} />
+                    </div>
+                    <div className={styles['Dashboard-List']}>
+                        {cart.map((item) => (
+                            <div key={item.id} className={styles['Dashboard-List-Item']}>
+                                <Image src={item?.images[0]} width={50} height={50} alt={item.title} />
+                                <p> {item.title}</p>
+                                <p>${item.price}</p>
+                                <p>{item.category.name}</p>
+                                <Link href={`/dashboard/edit/${item.id}`}>Edit</Link>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            </>
+        );
+    } else {
+        return (
             <section className={styles.Dashboard}>
-                <Alert alert={alert} handleClose={togleAlert} />
-                <h2>Dashboard</h2>
-                <p>
-                    <span>Shopping Items:</span> {cart.length}
-                </p>
-                <p>
-                    <span>Total:</span> ${sumTotal()}
-                </p>
-                <button type="button" onClick={() => handleModal()} className={styles['Dashboard-AddButton']}>
-                    Add Product
-                </button>
-                <Chart chartData={data} className={styles['Dashboard-chart']} />
-                <div className={styles['Dashboard-List']}>
-                    {cart.map((item) => (
-                        <div key={item.id} className={styles['Dashboard-List-Item']}>
-                            <Image src={item?.images[0]} width={50} height={50} alt={item.title} />
-                            <p> {item.title}</p>
-                            <p>${item.price}</p>
-                            <p>{item.category.name}</p>
-                            <Link href={`/dashboard/edit/${item.id}`}>Edit</Link>
-                        </div>
-                    ))}
-                </div>
+                <ProductEmpty />
             </section>
-        </>
-    );
+
+        )
+    }
+
 };
 
 export default Dashboard;

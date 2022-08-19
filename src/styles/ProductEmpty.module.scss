@@ -1,0 +1,11 @@
+@import './vars';
+
+.ProductEmpty {
+padding: 20px;
+text-align: center;
+
+}
+
+.ProductEmpty h2 {
+    color: $--very-light-pink;
+}

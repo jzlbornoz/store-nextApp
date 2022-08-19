@@ -16,8 +16,8 @@ const Menu = () => {
 			<ul>
 				<li>
 				<button onClick={() => toggleMenu()} onKeyPress={() => toggleMenu()}>
-					<Link href="/checkout" className="title">
-						My Orders
+					<Link href="/dashboard" className="title">
+						Dashboard
 					</Link>
 				</button>
 				</li>

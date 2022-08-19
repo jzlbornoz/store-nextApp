@@ -18,7 +18,7 @@ const Chart = ({ chartData }) => {
                     legend: {
                         display: true,
                         position: "right",
-                    }
+                    }     
                 }}
 
             />

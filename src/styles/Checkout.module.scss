@@ -2,7 +2,7 @@
 
 .Checkout {
 	width: 100%;
-	min-height: 100vh;
+	min-height: 85vh;
 	display: grid;
 	place-items: center;
 	margin-top: 12vh;
@@ -47,12 +47,20 @@
 	font-weight: bold;
 }
 
-.Checkout-container a {
+.Checkout-container-buy, .Checkout-container-paypal{
 	width: 100%;
-	background-color: $--green;
 	padding: 10px;
 	text-align: center;
 	color: $--white;
+	background-color: $--hospital-green;
 	border-radius: 5px;
-	margin-bottom: 30px;
+	margin-bottom: 15px;
+	border: none;
+	border-radius: 10px;
+	font-size: 20px;
+}
+
+.Checkout-container-paypal{
+	background-color: #00457c;
+	color: #0079c1;
 }
