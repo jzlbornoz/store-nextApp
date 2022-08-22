@@ -1334,5 +1334,44 @@ const Dashboard = () => {
 
 export default Dashboard;
 ```
-# == Creacion de paginas, password, recovery y create account == 
+
+# == Creacion de paginas, password, recovery y create account ==
+
 1. Se integraron las platillas de templates.
+
+# == Creacion del filtro de productos ==
+
+1. Se crea el estado de search para posteriormente consumirlo en inputRef y el handleSearch en el customHook "useInitialState.js":
+
+- /hooks/useInitialState.js
+
+```
+  // filtro de productos (buscador)
+  const inputRef = useRef(null);
+
+  const handleSearch = () => {
+    setSearch(inputRef.current.value);
+  }
+
+```
+
+2. Se agrega el input al header:
+
+- /components/Header.jsx
+
+```
+<div className={style.search}>
+		<input type='text' placeholder='Search' value={search} onChange={handleSearch} ref={inputRef} />
+</div>
+```
+
+3. Se agrega la siguiente logica en ProductList:
+- /containers/ProductList.jsx
+
+```
+	const filteredProducts = products.filter((filteredProduct) => (
+		  filteredProduct.title.toLowerCase().includes(search.toLowerCase())
+		));
+```
+- search es traido del AppContext.
+- filteredProducts es ahora lo que se mapea.

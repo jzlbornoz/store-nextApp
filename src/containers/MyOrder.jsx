@@ -54,7 +54,7 @@ const MyOrder = () => {
 	}else {
 		return(
 <aside className={styles.MyOrder}>
-			<ProductEmpty />
+			<ProductEmpty messege={`Without product, make your firs order`} />
 		</aside>
 		)
 		

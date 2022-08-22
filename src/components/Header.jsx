@@ -10,12 +10,16 @@ import style from '@styles/Header.module.scss';
 import useAuth from '@hooks/useAuth';
 
 const Header = () => {
-	const { state, toggleOrder, toggleMenu } = useContext(AppContext);
+	const { state, toggleOrder, toggleMenu, search, handleSearch, inputRef } = useContext(AppContext);
 	const auth = useAuth();
 	return (
 		<>
 			<nav className={style.nav}>
-				<div className={style.menu}><Image src={menu} alt="menu" width="25" height="21" /></div>
+				{auth.user &&
+					<button className={style.menu} onClick={() => toggleMenu()}
+						onKeyPress={() => toggleMenu()}>
+						<Image src={menu} alt="menu" width="25" height="21" />
+					</button>}
 				<div className={style['navbar-left']}>
 					<Link href="/">
 						<h2 className={style['nav-logo']}>Atech Store</h2>
@@ -41,21 +45,29 @@ const Header = () => {
 						</li>
 					</ul>
 				</div>
+				{auth.user &&
+					<div className={style.search}>
+						<input type='text' placeholder='Search' value={search} onChange={handleSearch} ref={inputRef} />
+					</div>
+				}
 				<div className={style['navbar-right']}>
 					<ul>
-						<li className={style['navbar-email pointer more-clickable-area ']}
+						<li className={style['navbar-email']}
 							onClick={() => toggleMenu()}
 							onKeyPress={() => toggleMenu()}
-							role="presentation">
+							role="presentation"
+						>
 							{auth?.user?.name}
 						</li>
-						{auth.user && <li className={style['navbar-shopping-cart']}
-							onClick={() => toggleOrder()}
-							onKeyPress={() => toggleOrder()}
-							role="presentation">
-							<Image className={style['more-clickable-area pointer']} src={shoppingCart} alt="shopping cart" />
-							{state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
-						</li>}
+						{auth.user &&
+							<li className={style['navbar-shopping-cart']}
+								onClick={() => toggleOrder()}
+								onKeyPress={() => toggleOrder()}
+								role="presentation"
+							>
+								<Image className={style['more-clickable-area pointer']} src={shoppingCart} alt="shopping cart" />
+								{state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
+							</li>}
 					</ul>
 				</div>
 			</nav>

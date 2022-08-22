@@ -18,6 +18,7 @@
 .menu {
   display: none;
 }
+
 .nav-logo {
   width: auto;
   color: $--hospital-green;
@@ -30,10 +31,10 @@
   display: flex;
   align-items: center;
   height: auto;
- 
 }
 .navbar-left {
   display: flex;
+  align-items: center;
 }
 .navbar-left ul {
   margin-left: 12px;
@@ -83,9 +84,25 @@
   color: $--white;
 }
 
-@media (max-width: 900px) {
+.search {
+  margin-left: 10px;
+}
+.search input{
+  padding: 5px;
+  border-radius: 7px;
+  border: none;
+  background-color: $--text-input-field;
+  outline: 1px solid $--very-light-pink;
+  font-size: 16px;
+  color: $--very-light-pink;
+  width: 30vw;
+}
+
+@media (max-width: 1000px) {
   .menu {
     display: block;
+    background: none;
+    border: none;
   }
   .navbar-left ul {
     display: none;
@@ -94,6 +111,6 @@
     display: none;
   }
   .navbar-right ul{
-    width: 30vw;
+    width: 8vw;
   }
 }

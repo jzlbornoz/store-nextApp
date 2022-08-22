@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 const initialState = {
   cart: [],
@@ -8,7 +8,7 @@ const initialState = {
 
 const useInitialState = () => {
   const [state, setState] = useState(initialState);
-  
+  const [search, setSearch] = useState('');
 
   const addToCart = (payload) => {
     setState({
@@ -28,7 +28,7 @@ const useInitialState = () => {
     setState({
       ...state,
       orderIsOpen: !state.orderIsOpen,
-      menuIsOpen:false,
+      menuIsOpen: false,
     });
   };
 
@@ -40,12 +40,25 @@ const useInitialState = () => {
     });
   };
 
+  // filtro de productos (buscador)
+  const inputRef = useRef(null);
+
+  const handleSearch = () => {
+    setSearch(inputRef.current.value);
+  }
+
+
+
+
 return {
   state,
   addToCart,
   removeFromCart,
   toggleOrder,
-  toggleMenu
+  toggleMenu,
+  search,
+  handleSearch,
+  inputRef,
 };
 };
 

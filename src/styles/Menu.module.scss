@@ -59,6 +59,13 @@ background: none;
 @media (max-width: 1000px) {
 	.Menu {
 	  width: 100%;
+	  height: 90vh;
 	}
+
+.Menu ul li {
+	text-align: center;
+	font-size: 45px;
+}
+
   }
   
