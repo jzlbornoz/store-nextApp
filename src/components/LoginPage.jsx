@@ -34,20 +34,15 @@ const LoginPage = () => {
         <>
             <div className={styles.Login}>
                 <div className={styles['Login-container']}>
+                <h2>Sign in</h2>
                     <form action="/" className={styles.form} >
-                        <label htmlFor="email" className={styles.label}>
-                            Email address
-                        </label>
                         <input
                             type="text"
                             name="email"
-                            placeholder="user@example.cm"
+                            placeholder="Email Address"
                             className={`${styles.input} ${styles.inputEmail}`}
                             ref={userRef}
                         />
-                        <label htmlFor="password" className={styles.label}>
-                            Password
-                        </label>
                         <input
                             type="password"
                             name="password"
