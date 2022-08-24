@@ -12,7 +12,7 @@
 	border: 1px solid $--very-light-pink;
 	z-index: 19;
 	box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-	height: 20vh;
+	height: 25vh;
 }
 
 .Menu ul {
@@ -37,17 +37,18 @@
 
 .Menu ul li:last-child a {
 	color: $--very-light-pink;
-	font-size: $--sm;
+	font-size: 16px;
 }
 .Menu ul li:last-child a:hover{
 	color: rgb(255, 85, 85);
 }
 
 .Menu ul li a {
-	color: $--black;
 	text-decoration: none;
 	margin-bottom: 20px;
 	display: inline-block;
+	font-size: 16px;
+	color: $--hospital-green;
 }
 
 .Menu ul li button{
@@ -62,10 +63,13 @@ background: none;
 	  height: 90vh;
 	}
 
-.Menu ul li {
+	.Menu ul li {
 	text-align: center;
-	font-size: 45px;
 }
+	.Menu ul li a{
+font-size: 22px;
+margin: 20px 0px 30px 0px;
+	} 
 
   }
   
