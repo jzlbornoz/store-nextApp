@@ -1366,6 +1366,7 @@ export default Dashboard;
 ```
 
 3. Se agrega la siguiente logica en ProductList:
+
 - /containers/ProductList.jsx
 
 ```
@@ -1373,5 +1374,40 @@ export default Dashboard;
 		  filteredProduct.title.toLowerCase().includes(search.toLowerCase())
 		));
 ```
+
 - search es traido del AppContext.
 - filteredProducts es ahora lo que se mapea.
+
+# == Modificacion de la logica de login ==
+
+1. Se modifico la logica de la funcion sign In del useAuth, para que obtuviera el token de la cookie y automaticamente lo utilice para hacer el llamado del usuario.
+
+- hooks/useAuth.js
+
+```
+const signIn = async (email, password) => {
+        const options = {
+            headers: {
+                accept: '*/*',
+                'Content-Type': 'application/json',
+            },
+        }
+        if (email, password) {
+            const { data: access_token } = await axios.post(endPoints.auth.login, { email, password }, options);
+            if (access_token) {
+                const token = access_token.access_token;
+                Cookie.set('token', token, { expires: 10 });
+
+                axios.defaults.headers.Authorization = `Bearer ${token}`;
+                const { data: user } = await axios.get(endPoints.auth.profile);
+                setUser(user);
+            }
+        } else {
+            const token = Cookie.get('token');
+            axios.defaults.headers.Authorization = `Bearer ${token}`;
+            const { data: user } = await axios.get(endPoints.auth.profile);
+            setUser(user);
+        }
+    };
+```
+2. Pendiente por mejorar las rutas.

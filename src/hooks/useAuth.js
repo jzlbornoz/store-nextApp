@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import AuthContext from '@context/AuthContext';
 import axios from 'axios';
 import endPoints from 'services/api';
-import Cookies from 'js-cookie';
+import Cookie from 'js-cookie';
 import { useRouter } from 'next/router';
 
 export function ProviderAuth({ children }) {
@@ -30,21 +30,30 @@ const useProviderAuth = () => {
                 'Content-Type': 'application/json',
             },
         }
-        const { data: access_token } = await axios.post(endPoints.auth.login, { email, password }, options);
-        if (access_token) {
-            Cookies.set('token', access_token.access_token, { expires: 10 });
-        }
+        if (email, password) {
+            const { data: access_token } = await axios.post(endPoints.auth.login, { email, password }, options);
+            if (access_token) {
+                const token = access_token.access_token;
+                Cookie.set('token', token, { expires: 10 });
+                console.log(Cookie.get('token'));
 
-        axios.defaults.headers.Authorization = `Bearer ${access_token.access_token}`;
-        const { data: user } = await axios.get(endPoints.auth.profile);
-        setUser(user);
+                axios.defaults.headers.Authorization = `Bearer ${token}`;
+                const { data: user } = await axios.get(endPoints.auth.profile);
+                setUser(user);
+            }
+        } else {
+            const token = Cookie.get('token');
+            axios.defaults.headers.Authorization = `Bearer ${token}`;
+            const { data: user } = await axios.get(endPoints.auth.profile);
+            setUser(user);
+        }
     };
 
     const logout = () => {
-        Cookies.remove('token');
+        Cookie.remove('token');
         setUser(null);
         delete axios.defaults.headers.Authorization;
-       router.push('/');
+        router.push('/');
 
     }
 

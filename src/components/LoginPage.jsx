@@ -4,6 +4,7 @@ import Link from 'next/link';
 import useAuth from '@hooks/useAuth';
 import { useRouter } from 'next/router';
 
+
 const LoginPage = () => {
 
     const userRef = useRef(null);
@@ -28,13 +29,12 @@ const LoginPage = () => {
         )
         console.log(user + password);
     }
-
     // -- 
     return (
         <>
             <div className={styles.Login}>
                 <div className={styles['Login-container']}>
-                <h2>Sign in</h2>
+                    <h2>Sign in</h2>
                     <form action="/" className={styles.form} >
                         <input
                             type="text"
