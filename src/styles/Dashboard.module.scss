@@ -65,8 +65,16 @@
     border: none;
     border-radius: 5px;
     color: $--white;
+
 }
 
 .Dashboard-chart{
     margin-top: 10px;
+}
+
+.Dashboard-Bar{
+    display: flex;
+    height: 10vh;
+    align-items: center;
+    justify-content: space-between;
 }

@@ -1380,7 +1380,7 @@ export default Dashboard;
 
 # == Modificacion de la logica de login ==
 
-1. Se modifico la logica de la funcion sign In del useAuth, para que obtuviera el token de la cookie y automaticamente lo utilice para hacer el llamado del usuario.
+1. Se modifico la logica de la funcion sign In del useAuth, para que obtuviera el token de la cookie y automaticamente lo utilice para hacer el llamado del usuario y al renderizar cada una de las paginas de la aplicacion de hace el llamado a la funcion signIn().
 
 - hooks/useAuth.js
 
@@ -1410,4 +1410,8 @@ const signIn = async (email, password) => {
         }
     };
 ```
-2. Pendiente por mejorar las rutas.
+
+ === PENDIENTES ===
+ 1. Conectar el buscador con los productos del dashboard
+ 2. Mejorar la pagina de los productos 
+ 3. Mejorar el enrutado login-home

@@ -84,15 +84,20 @@ const Dashboard = () => {
                 <section className={styles.Dashboard}>
                     <Alert alert={alert} handleClose={togleAlert} />
                     <h2>Dashboard</h2>
-                    <p>
-                        <span>Shopping Items:</span> {cart.length}
-                    </p>
-                    <p>
-                        <span>Average per item:</span> ${sumTotal()}
-                    </p>
-                    <button type="button" onClick={() => handleModal()} className={styles['Dashboard-AddButton']}>
-                        Add Product
-                    </button>
+                    <section className={styles['Dashboard-Bar']}>
+                        <p>
+                            <span>Shopping Items:</span> {cart.length}
+                        </p>
+                        <p>
+                            <span>Average per item:</span> ${sumTotal()}
+                        </p>
+                        <div>
+                            <button type="button" onClick={() => handleModal()} className={styles['Dashboard-AddButton']}>
+                                Add Product
+                            </button>
+                        </div>
+                    </section>
+
                     <div className={styles['Dashboard-chart']}>
                         <Chart chartData={data} />
                     </div>
