@@ -5,8 +5,10 @@ import Header from '@components/Header';
 import { ProviderAuth } from '@hooks/useAuth';
 import '@styles/globals.css';
 
+
 function MyApp({ Component, pageProps }) {
   const initialState = useInitialState();
+
   return (
     <>
       <ProviderAuth>

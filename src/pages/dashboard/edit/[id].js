@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import styles from '@styles/Edit.module.scss';
 import axios from 'axios';
 import endPoints from '@services/api';
+import useAuth from '@hooks/useAuth';
 
 const Edit = () => {
     const router = useRouter();
@@ -18,7 +19,8 @@ const Edit = () => {
         };
         getProduct();
     }, [router?.isReady]);
-
+    const auth = useAuth();
+    auth.signIn();
     return (
         <section className={styles.Edit}>
             <FormProduct product={product} />
