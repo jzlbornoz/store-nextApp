@@ -22,7 +22,7 @@ const Header = () => {
 					</button>}
 				<div className={style['navbar-left']}>
 					<Link href="/">
-						<h2 className={style['nav-logo']}>Atech Store</h2>
+						<h2 className={style['nav-logo']}>YourStore</h2>
 					</Link>
 					<ul>
 						<li>

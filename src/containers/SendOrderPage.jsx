@@ -7,7 +7,7 @@ const SendOrderPage = () => {
 	return (
 		<div className={styles.SendOrder}>
 			<div className={styles['form-container']}>
-				<h2>Atech Store</h2>
+				<h2>YourStore</h2>
 				<h1 className={styles.title}>Your Order has been sent!</h1>
 				<p className={styles.subtitle}>Thanks for choosing us!</p>
 				<div className={styles['email-image']}>

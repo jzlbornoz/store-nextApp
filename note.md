@@ -1411,7 +1411,8 @@ const signIn = async (email, password) => {
     };
 ```
 
- === PENDIENTES ===
- 1. Conectar el buscador con los productos del dashboard
- 2. Mejorar la pagina de los productos 
- 3. Mejorar el enrutado login-home
+=== PENDIENTES ===
+
+1.  Conectar el buscador con los productos del dashboard
+2.  Mejorar la pagina de los productos
+3.  Mejorar el enrutado login-home

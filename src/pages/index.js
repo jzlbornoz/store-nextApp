@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Store | NextApp</title>
+        <title>YourStore | Home</title>
       </Head>
       {auth.user ? <ProductList /> : <LoginPage />}
     </>

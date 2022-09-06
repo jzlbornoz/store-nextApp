@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import styles from '../styles/Dashboard.module.scss';
 import Image from 'next/image';
@@ -12,10 +12,12 @@ import Link from 'next/link';
 import placeholder from 'assets/icons/placeholder.jpg';
 import { ProductListSkeleton } from '@components/ProductListSkeleton';
 import { deleteProduct } from '@services/api/product';
+import AppContext from '@context/AppContext';
 
 const Dashboard = () => {
     const [open, setOpen] = useState(false);
     const { alert, setAlert, togleAlert } = useAlert();
+    const { search } = useContext(AppContext);
 
     const handleModal = () => {
         setOpen(true);
@@ -35,18 +37,23 @@ const Dashboard = () => {
         }
     }, [alert]);
 
-
+    // Filtra el resultado de la API segun el input del header
+    const filteredProducts = cart.filter((filteredProduct) => (
+        filteredProduct.title.toLowerCase().includes(search.toLowerCase())
+    ));
 
     // Para obtener la suma de todos los precios de articulos
     const sumTotal = () => {
         const reducer = (accumalator, currentValue) => accumalator + currentValue.price;
-        const sum = cart.reduce(reducer, 0);
-        const sumAverage = parseInt(sum / cart.length);
+        const sum = filteredProducts.reduce(reducer, 0);
+        const sumAverage = parseInt(sum / filteredProducts.length);
         return sumAverage;
     };
+
     // Para obtener las categorias de los articulos del cart
-    const categoryName = cart?.map((product) => product.category);
+    const categoryName = filteredProducts?.map((product) => product.category);
     const categoryCount = categoryName?.map((category) => category.name);
+
     // Contador de Ocurrencias para obtener las veces que se repiten los articulos
     const countOccurencies = (arr) => arr.reduce((prev, curr) => ((prev[curr] = ++prev[curr] || 1), prev), {});
 
@@ -102,7 +109,7 @@ const Dashboard = () => {
                         <Chart chartData={data} />
                     </div>
                     <div className={styles['Dashboard-List']}>
-                        {cart.map((item) => (
+                        {filteredProducts.map((item) => (
                             <div key={item.id} className={styles['Dashboard-List-Item']}>
                                 {item.images[0]
                                     ?

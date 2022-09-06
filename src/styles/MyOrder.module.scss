@@ -89,13 +89,11 @@
 .secundary-button{
   background-color: $--very-light-pink;
 }
-.primary-button:hover{
-  background-color: $--white;
+.primary-button:hover , .secundary-button:hover{
+  background: none;
   border: 1px solid $--hospital-green;
   color: $--hospital-green;
 }
-
-
 @media (max-width: 640px) {
   .MyOrder {
     width: 100%;

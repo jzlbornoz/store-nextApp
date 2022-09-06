@@ -5,6 +5,7 @@ import styles from '@styles/Edit.module.scss';
 import axios from 'axios';
 import endPoints from '@services/api';
 import useAuth from '@hooks/useAuth';
+import Head from 'next/head';
 
 const Edit = () => {
     const router = useRouter();
@@ -22,9 +23,15 @@ const Edit = () => {
     const auth = useAuth();
     auth.signIn();
     return (
-        <section className={styles.Edit}>
-            <FormProduct product={product} />
-        </section>
+        <>
+        <Head>
+            <title>YourStore | Edit-Product</title>
+        </Head>
+            <section className={styles.Edit}>
+                <FormProduct product={product} />
+            </section>
+        </>
+
     );
 };
 
