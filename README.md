@@ -24,5 +24,7 @@ E-commerce Next App, bootstrapped by react | You can look and manage the product
 
 ## App deployed:
 https://store-next-app.vercel.app/
+mail: admin@mail.com
+password: admin123
 
 
