@@ -9,6 +9,7 @@ import shoppingCart from '@icons/icon_shopping_cart.svg';
 import style from '@styles/Header.module.scss';
 import useAuth from '@hooks/useAuth';
 
+
 const Header = () => {
 	const { state, toggleOrder, toggleMenu, search, handleSearch, inputRef } = useContext(AppContext);
 	const auth = useAuth();
@@ -29,19 +30,19 @@ const Header = () => {
 							<Link href="/">All</Link>
 						</li>
 						<li>
-							<Link href="/">Clothes</Link>
+							<Link href="/categories/1">Clothes</Link>
 						</li>
 						<li>
-							<Link href="/">Electronics</Link>
+							<Link href="/categories/2">Electronics</Link>
 						</li>
 						<li>
-							<Link href="/">Furnitures</Link>
+							<Link href="/categories/3">Furnitures</Link>
 						</li>
 						<li>
-							<Link href="/">Toys</Link>
+							<Link href="/categories/4">Shoes</Link>
 						</li>
 						<li>
-							<Link href="/">Others</Link>
+							<Link href="/categories/5">Others</Link>
 						</li>
 					</ul>
 				</div>

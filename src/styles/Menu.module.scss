@@ -25,25 +25,41 @@
 	text-align: end;
 }
 
-.Menu ul li:nth-child(1),
-.Menu ul li:nth-child(2) {
+.SecondList li:nth-child(1),
+.SecondList li:nth-child(2) {
 	font-weight: bold;
 }
 
-.Menu ul li:last-child {
+.SecondList li:last-child {
 	padding-top: 20px;
 	border-top: 1px solid $--very-light-pink;
 }
+.FirstList{
+	display: none;
+}
+.FirstList h3 {
+	text-align: center;
+	color:  $--very-light-pink;
+}
 
-.Menu ul li:last-child a {
+.FirstList button{
+	border: none;
+	background: none;
+}
+
+.FirstList li:last-child{
+	border-bottom: 1px solid $--very-light-pink;
+}
+
+.SecondList li:last-child a {
 	color: $--very-light-pink;
 	font-size: 16px;
 }
-.Menu ul li:last-child a:hover{
+.SecondList li:last-child a:hover{
 	color: rgb(255, 85, 85);
 }
 
-.Menu ul li a {
+.SecondList li a , .FirstList li a {
 	text-decoration: none;
 	margin-bottom: 20px;
 	display: inline-block;
@@ -51,7 +67,7 @@
 	color: $--hospital-green;
 }
 
-.Menu ul li button{
+.SecondList li button{
 border: none;
 font-size: $--sm;
 background: none;
@@ -70,6 +86,8 @@ background: none;
 font-size: 22px;
 margin: 20px 0px 30px 0px;
 	} 
-
+	.FirstList {
+		display: block;
+	}
   }
   

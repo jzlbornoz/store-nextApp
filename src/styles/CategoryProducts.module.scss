@@ -1,0 +1,32 @@
+@import "vars";
+
+.main-container{
+    padding-top: 20px;
+    margin: 10vh 0px 5vh 0px;
+  }
+
+.main-container h2 span{
+    font-size: 28px;
+    color: $--very-light-pink;
+    padding-left: 24px;
+}
+
+.main-container h2{
+    color: $--hospital-green;
+    font-size: 28px;
+}
+  
+  .ProductList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 240px);
+    gap: 26px;
+    place-content: center;
+    margin-top: 30px;
+  }
+
+  @media (max-width: 640px) {
+    .ProductList {
+      grid-template-columns: repeat(auto-fill, 140px);
+    }
+  }
+  
