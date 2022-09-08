@@ -3,6 +3,7 @@ import ProductItem from '@components/ProductItem';
 import endPoints from '@services/api';
 import axios from 'axios';
 import styles from '../styles/CategoryProducts.module.scss';
+import { ProductListSkeleton } from '@components/ProductListSkeleton';
 
 const CategoryProducts = ({ id }) => {
     const [products, setProducts] = useState([]);
@@ -23,18 +24,25 @@ const CategoryProducts = ({ id }) => {
         }
     }, [id]);
 
-    return (
-        <section className={styles['main-container']}>
-            <h2><span>Category: </span>{products[0]?.category?.name}</h2>
-            <div className={styles.ProductList}>
-                {products.map((product) => (
-                    <ProductItem product={product} key={product.id} />
-                ))}
-            </div>
+    if (products[0]?.category.id == id) {
+        return (
+            <section className={styles['main-container']}>
+                <h2><span>Category: </span>{products[0]?.category?.name}</h2>
+                <div className={styles.ProductList}>
+                    {products.map((product) => (
+                        <ProductItem product={product} key={product.id} />
+                    ))}
+                </div>
 
-        </section>
+            </section>
+        );
+    } else {
+        return (
+                <ProductListSkeleton />
+        )
 
-    );
+    }
+
 };
 
 export { CategoryProducts };
