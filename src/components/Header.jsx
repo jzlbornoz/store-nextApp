@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Menu from '@components/Menu';
@@ -13,6 +13,9 @@ import useAuth from '@hooks/useAuth';
 const Header = () => {
 	const { state, toggleOrder, toggleMenu, search, handleSearch, inputRef } = useContext(AppContext);
 	const auth = useAuth();
+	useEffect(() => {
+		auth.signIn();
+	}, []);
 	return (
 		<>
 			<nav className={style.nav}>
@@ -53,13 +56,15 @@ const Header = () => {
 				}
 				<div className={style['navbar-right']}>
 					<ul>
-						<li className={style['navbar-email']}
-							onClick={() => toggleMenu()}
-							onKeyPress={() => toggleMenu()}
-							role="presentation"
-						>
-							{auth?.user?.name}
-						</li>
+						{auth.user
+							? <li className={style['navbar-email']}
+								onClick={() => toggleMenu()}
+								onKeyPress={() => toggleMenu()}
+								role="presentation"
+							>
+								{auth?.user?.name}
+							</li>
+							: <Link href='/login'><li>Log In</li></Link>}
 						{auth.user &&
 							<li className={style['navbar-shopping-cart']}
 								onClick={() => toggleOrder()}
