@@ -7,7 +7,7 @@ module.exports = withPWA({
     mode: 'production',
     disable: false,
   },
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
     domains: ['placeimg.com', 'api.lorem.space' , 'images.pexels.com'],
   }

@@ -9,7 +9,6 @@ import shoppingCart from '@icons/icon_shopping_cart.svg';
 import style from '@styles/Header.module.scss';
 import useAuth from '@hooks/useAuth';
 
-
 const Header = () => {
 	const { state, toggleOrder, toggleMenu, search, handleSearch, inputRef } = useContext(AppContext);
 	const auth = useAuth();
@@ -64,7 +63,7 @@ const Header = () => {
 							>
 								{auth?.user?.name}
 							</li>
-							: <Link href='/login'><li>Log In</li></Link>}
+							: <Link href='/login'><li className={style.Login}>Log In</li></Link>}
 						{auth.user &&
 							<li className={style['navbar-shopping-cart']}
 								onClick={() => toggleOrder()}

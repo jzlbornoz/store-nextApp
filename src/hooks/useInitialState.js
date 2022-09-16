@@ -47,9 +47,6 @@ const useInitialState = () => {
     setSearch(inputRef.current.value);
   }
 
-
-
-
 return {
   state,
   addToCart,
