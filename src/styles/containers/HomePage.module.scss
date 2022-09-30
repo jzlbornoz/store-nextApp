@@ -1,0 +1,31 @@
+@import '../vars';
+
+.Home {
+    margin-top: 11vh;
+}
+.Home-Banner {
+    background: rgb(200,255,207);
+    background: linear-gradient(144deg, rgb(166, 236, 175) 19%, rgb(92, 181, 103) 100%); 
+    display: flex;
+    border-radius: 13px;
+    justify-content: space-between;
+    margin: 0px 3vw 0px 3vw;
+}
+
+.Home-Banner img{
+    border-radius: 13px;
+}
+
+.Home-Banner-Content {
+    width: 50%;
+    color: $--white;
+    padding: 5px;
+}
+.Home-Banner-Content span {
+    font-weight: 900;
+    font-size: 16px;
+}
+
+.Home-Banner-Content p {
+    font-size: 11px;
+}

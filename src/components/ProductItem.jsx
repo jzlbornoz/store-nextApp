@@ -17,8 +17,6 @@ const ProductItem = ({ product }) => {
 		addToCart(item);
 	};
 
-
-
 	return (
 		<div className={styles.ProductItem}>
 			{product.images[0]

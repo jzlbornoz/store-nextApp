@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import ProductList from '@containers/ProductList';
+import { HomePage } from '@containers/HomePage';
 
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
       <Head>
         <title>YourStore | Home</title>
       </Head>
-     <ProductList /> 
+    <HomePage />
     </>
   );
 }
