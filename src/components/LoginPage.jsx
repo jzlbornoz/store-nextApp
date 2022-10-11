@@ -27,7 +27,6 @@ const LoginPage = () => {
                 auth.setError(true);
             }
         )
-        console.log(user + password);
     }
     // -- 
     return (

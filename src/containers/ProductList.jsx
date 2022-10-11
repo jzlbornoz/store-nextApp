@@ -19,7 +19,6 @@ const ProductList = () => {
 		async function getProducts() {
 			const response = await axios.get(endPoints.products.getAllProduct);
 			setProducts(response.data);
-			console.log(response.data);
 		}
 		try {
 			getProducts();
