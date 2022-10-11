@@ -3,13 +3,27 @@
 .Home {
     margin-top: 11vh;
 }
+
+.Home-h2{
+    margin-left: 10vw;
+    padding-top: 5px;
+    font-size: 22px;
+    font-weight: 900;
+    color:  $--very-light-pink;
+}
+.Home-Wrapped-Banner{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
 .Home-Banner {
     background: rgb(200,255,207);
-    background: linear-gradient(144deg, rgb(166, 236, 175) 19%, rgb(92, 181, 103) 100%); 
+    background: linear-gradient(144deg, rgb(166, 236, 175) 19%, rgb(106, 194, 117) 100%); 
     display: flex;
     border-radius: 13px;
     justify-content: space-between;
-    margin: 0px 3vw 0px 3vw;
+    width: 80vw;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
 }
 
 .Home-Banner img{
@@ -17,15 +31,15 @@
 }
 
 .Home-Banner-Content {
-    width: 50%;
+    width: 70%;
     color: $--white;
     padding: 5px;
 }
 .Home-Banner-Content span {
     font-weight: 900;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .Home-Banner-Content p {
-    font-size: 11px;
+    font-size: 10px;
 }

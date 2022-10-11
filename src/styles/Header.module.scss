@@ -45,10 +45,10 @@
 .navbar-left ul li a,
 .navbar-right ul li a {
   text-decoration: none;
-  color: $--very-light-pink;
   border: 1px solid $--white;
   padding: 8px;
   border-radius: 8px;
+  color: $--very-light-pink;
 }
 .navbar-left ul li a:hover,
 .navbar-right ul li a:hover {
@@ -63,7 +63,7 @@
   width: 30vh;
 }
 .navbar-right ul li{
-  color: $--very-light-pink;
+  color: $--white;
 }
 .navbar-right ul li:hover{
   color: $--hospital-green;
@@ -100,8 +100,23 @@
   color: $--very-light-pink;
   width: 30vw;
 }
+.Login{
+  white-space: nowrap;
+  background-color: $--hospital-green;
+  padding: 5px 7px 5px 7px; 
+  border-radius: 8px;
+  color: $--white;
+}
+.Login:hover {
+  background: none;
+  border: 1px solid $--hospital-green;
+  color: $--hospital-green;
+}
 
 @media (max-width: 1000px) {
+  .nav{
+    justify-content: space-around;
+  }
   .menu {
     display: block;
     background: none;
@@ -118,8 +133,5 @@
   }
   .search input{
     font-size: 14px;
-  }
-  .Login{
-white-space: nowrap;
   }
 }

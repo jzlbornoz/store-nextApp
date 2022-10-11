@@ -23,8 +23,8 @@ const ProductItem = ({ product }) => {
 				?
 				<Link href={`/product/${product.id}`}>
 					<Image src={product.images[0]}
-						width={240}
-						height={240}
+						width={220}
+						height={220}
 						alt={product.title}
 						loader={() => product.images[0]}
 						unoptimized={true}
@@ -56,15 +56,15 @@ const ProductItem = ({ product }) => {
 									className={(styles.disabled, styles['add-to-cart-btn'])}
 									src={addedToCartImage}
 									alt="added to cart"
-									width={50}
-									height={50} />
+									width={40}
+									height={40} />
 							)
 							: (
 								<Image
 									className={(styles['add-to-cart-btn'], styles.pointer)}
 									src={addToCartImage} alt="add to cart"
-									width={50}
-									height={50} />
+									width={40}
+									height={40} />
 							)}
 					</figure>
 				</div>

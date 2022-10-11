@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ProductList from './ProductList';
 import styles from '../styles/containers/HomePage.module.scss';
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 const HomePage = () => {
@@ -10,39 +11,46 @@ const HomePage = () => {
         fetch(`https://api.escuelajs.co/api/v1/products/14`)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
                 setProduct(data);
             })
             .catch((err) => {
                 console.log('error :' + err);
             });
     }, []);
-    console.log(product)
+
+    //--
     return (
         <section className={styles.Home}>
+            <p className={styles['Home-h2']}>Trending:</p>
             {JSON.stringify(product) == '{}'
                 ? <></>
                 :
-                <div className={styles['Home-Banner']}>
-                    {product.images[0] &&
-                        <Image
-                            src={product.images[0]}
-                            height={145}
-                            width={155}
-                            alt={product.title}
-                            loader={() => product.images[0]}
-                            unoptimized={true}
+                <section className={styles['Home-Wrapped-Banner']}>
+                    <Link href={`/product/${product.id}`} >
+                        <div className={styles['Home-Banner']}>
+                            {product.images[0] &&
+                                <Image
+                                    src={product.images[0]}
+                                    height={105}
+                                    width={115}
+                                    alt={product.title}
+                                    loader={() => product.images[0]}
+                                    unoptimized={true}
 
-                        /> }
-                    <div className={styles['Home-Banner-Content']}>
-                        <span>{product?.title}</span>
-                        <p>{product?.description}</p>
-                        <span>{product?.price}$</span>
-                    </div>
+                                />}
+                            <div className={styles['Home-Banner-Content']}>
+                                <span>{product?.title}</span>
+                                <p>{product?.description}</p>
+                                <span>{product?.price}$</span>
+                            </div>
 
-                </div>}
-                <ProductList />
-        </section>
+                        </div>
+                    </Link>
+
+                </section>
+            }
+            <ProductList />
+        </section >
     )
 }
 
