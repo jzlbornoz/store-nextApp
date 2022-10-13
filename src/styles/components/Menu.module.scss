@@ -5,7 +5,7 @@
 	padding: 24px;
 	box-sizing: border-box;
 	position: fixed;
-	right: 0;
+	left: 0;
 	background-color: rgba(255, 255, 255, 0.95);
 	top: 10vh;
 	bottom: 65vh;
@@ -75,16 +75,17 @@ background: none;
 
 @media (max-width: 1000px) {
 	.Menu {
-	  width: 100%;
+	  width: 50%;
 	  height: 90vh;
 	}
 
 	.Menu ul li {
-	text-align: center;
+	text-align: start;
 }
 	.Menu ul li a{
-font-size: 22px;
+font-size: 16px;
 margin: 20px 0px 30px 0px;
+font-weight: 600;
 	} 
 	.FirstList {
 		display: block;

@@ -63,7 +63,7 @@
   width: 30vh;
 }
 .navbar-right ul li{
-  color: $--white;
+  color: $--very-light-pink;
 }
 .navbar-right ul li:hover{
   color: $--hospital-green;
@@ -102,10 +102,10 @@
 }
 .Login{
   white-space: nowrap;
-  background-color: $--hospital-green;
   padding: 5px 7px 5px 7px; 
   border-radius: 8px;
   color: $--white;
+  border: solid 1px $--very-light-pink;
 }
 .Login:hover {
   background: none;

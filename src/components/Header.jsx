@@ -14,7 +14,7 @@ const Header = () => {
 	const auth = useAuth();
 	useEffect(() => {
 		auth.signIn();
-	}, []);
+	}, [auth]);
 	return (
 		<>
 			<nav className={style.nav}>
