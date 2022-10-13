@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import styles from '../styles/Dashboard.module.scss';
 import Image from 'next/image';
+import Link from 'next/link';
 import Chart from '@components/Chart';
 import { Modal } from '@components/Modal';
 import FormProduct from '@components/FormProduct';
+import { ProductListSkeleton } from '@components/ProductListSkeleton';
 import { Alert } from '@components/Alert';
 import useAlert from '@hooks/useAlert';
 import endPoints from '@services/api';
-import Link from 'next/link';
-import placeholder from 'assets/icons/placeholder.jpg';
-import { ProductListSkeleton } from '@components/ProductListSkeleton';
 import { deleteProduct } from '@services/api/product';
+import placeholder from 'assets/icons/placeholder.jpg';
 import AppContext from '@context/AppContext';
+import styles from '../styles/containers/Dashboard.module.scss';
 
 const Dashboard = () => {
     const [open, setOpen] = useState(false);

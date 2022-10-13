@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import OrderItem from '@components/OrderItem';
-import styles from '@styles/Checkout.module.scss';
 import AppContext from '@context/AppContext';
 import Link from 'next/link';
 import { ProductEmpty } from '@components/ProductEmpty';
+import styles from '@styles/containers/Checkout.module.scss';
 
 const CheckoutPage = () => {
   const { state } = useContext(AppContext);

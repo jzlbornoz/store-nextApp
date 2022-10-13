@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import ProductList from './ProductList';
-import styles from '../styles/containers/HomePage.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import ProductList from './ProductList';
+import styles from '../styles/containers/HomePage.module.scss';
 
 const HomePage = () => {
     const [product, setProduct] = useState({});

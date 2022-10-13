@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import FormProduct from '@components/FormProduct';
 import { useRouter } from 'next/router';
-import styles from '@styles/Edit.module.scss';
 import axios from 'axios';
 import endPoints from '@services/api';
 import useAuth from '@hooks/useAuth';
 import Head from 'next/head';
+import styles from '@styles/Edit.module.scss';
 
 const Edit = () => {
     const router = useRouter();

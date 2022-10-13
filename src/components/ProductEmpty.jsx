@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@styles/ProductEmpty.module.scss';
+import styles from '@styles/components/ProductEmpty.module.scss';
 
 const ProductEmpty = ({messege}) => {
     return (

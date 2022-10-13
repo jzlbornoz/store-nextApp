@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@styles/Alert.module.scss';
+import styles from '@styles/components/Alert.module.scss';
 
 const Alert = ({ alert, handleClose }) => {
     if (alert && alert?.autoClose) {

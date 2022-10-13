@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@styles/ProductListSkeleton.module.scss';
+import styles from '@styles/components/ProductListSkeleton.module.scss';
 
 const ProductListSkeleton = () => {
   return (

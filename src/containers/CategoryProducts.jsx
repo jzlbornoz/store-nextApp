@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import ProductItem from '@components/ProductItem';
 import endPoints from '@services/api';
 import axios from 'axios';
-import styles from '../styles/CategoryProducts.module.scss';
 import { ProductListSkeleton } from '@components/ProductListSkeleton';
+import styles from '../styles/containers/CategoryProducts.module.scss';
 
 const CategoryProducts = ({ id }) => {
     const [products, setProducts] = useState([]);

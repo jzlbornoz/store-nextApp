@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { addProduct, updateProduct } from '@services/api/product';
 import { useRouter } from 'next/router';
-import styles from '@styles/FormProduct.module.scss';
+import styles from '@styles/components/FormProduct.module.scss';
 
 const FormProduct = ({ setOpen, setAlert, product }) => {
     const formRef = useRef(null);

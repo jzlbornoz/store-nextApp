@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import styles from '@styles/PasswordRecovery.module.scss';
+import styles from '@styles/containers/PasswordRecovery.module.scss';
 
 const PasswordRecovery = () => {
 	return (

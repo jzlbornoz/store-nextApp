@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from '@styles/CreateAccount.module.scss';
 import Link from 'next/link';
+import styles from '@styles/containers/CreateAccount.module.scss';
 
 const CreateAccountPage = () => {
   return (

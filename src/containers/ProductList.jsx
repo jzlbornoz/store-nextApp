@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
-import ProductItem from '@components/ProductItem';
-//import useGetProducts from '@hooks/useGetProducts';
-import styles from '@styles/ProductList.module.scss';
-import { ProductListSkeleton } from '@components/ProductListSkeleton';
-import endPoints from '@services/api';
-import { Alert } from '@components/Alert';
-import useAlert from '@hooks/useAlert';
 import axios from 'axios';
-import AppContext from '@context/AppContext';
+import ProductItem from '@components/ProductItem';
 import { ProductEmpty } from '@components/ProductEmpty';
+import { ProductListSkeleton } from '@components/ProductListSkeleton';
+import { Alert } from '@components/Alert';
+import endPoints from '@services/api';
+import useAlert from '@hooks/useAlert';
+import AppContext from '@context/AppContext';
+import styles from '@styles/containers/ProductList.module.scss';
 
 const ProductList = () => {
 	const [products, setProducts] = useState([]);

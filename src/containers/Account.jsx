@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from '@styles/MyAccount.module.scss';
 import Link from 'next/link';
 import useAuth from '@hooks/useAuth';
 import Image from 'next/image';
+import styles from '@styles/containers/MyAccount.module.scss';
 
 const Account = () => {
     const auth = useAuth();

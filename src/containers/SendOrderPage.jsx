@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import email from '../assets/icons/email.svg';
-import styles from '@styles/SendOrder.module.scss';
+import styles from '@styles/containers/SendOrder.module.scss';
 
 const SendOrderPage = () => {
 	return (

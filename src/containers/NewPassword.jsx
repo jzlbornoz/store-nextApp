@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from '@styles/NewPassword.module.scss';
 import Link from 'next/link';
+import styles from '@styles/containers/NewPassword.module.scss';
 
 
 const NewPassword = () => {

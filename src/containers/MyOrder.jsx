@@ -4,7 +4,7 @@ import Link from 'next/link';
 import OrderItem from '@components/OrderItem';
 import AppContext from '@context/AppContext';
 import arrow from '@icons/flechita.svg';
-import styles from '@styles/MyOrder.module.scss';
+import styles from '@styles/containers/MyOrder.module.scss';
 
 const MyOrder = () => {
 	const { state, toggleOrder } = useContext(AppContext);

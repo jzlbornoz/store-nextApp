@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
-import styles from '@styles/ProductInfo.module.scss';
 import addToCartImg from '@icons/bt_add_to_cart.svg';
 import Link from 'next/link';
 import AppContext from '@context/AppContext';
+import styles from '@styles/components/ProductInfo.module.scss';
 
 const ProductInfo = ({ id }) => {
 	const [product, setProduct] = useState([]);

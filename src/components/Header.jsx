@@ -6,8 +6,8 @@ import MyOrder from '@containers/MyOrder';
 import menu from '@icons/icon_menu.svg';
 import AppContext from '@context/AppContext';
 import shoppingCart from '@icons/icon_shopping_cart.svg';
-import style from '@styles/Header.module.scss';
 import useAuth from '@hooks/useAuth';
+import style from '@styles/components/Header.module.scss';
 
 const Header = () => {
 	const { state, toggleOrder, toggleMenu, search, handleSearch, inputRef } = useContext(AppContext);

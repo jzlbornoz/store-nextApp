@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
-import styles from '@styles/Menu.module.scss';
 import AppContext from '@context/AppContext';
 import useAuth from '@hooks/useAuth';
+import styles from '@styles/components/Menu.module.scss';
 
 const Menu = () => {
 	const { toggleMenu } = useContext(AppContext);

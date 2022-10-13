@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
-import styles from '@styles/Login.module.scss';
 import Link from 'next/link';
 import useAuth from '@hooks/useAuth';
 import { useRouter } from 'next/router';
+import styles from '@styles/components/Login.module.scss';
 
 
 const LoginPage = () => {
