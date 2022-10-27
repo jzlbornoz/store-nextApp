@@ -1,22 +1,30 @@
 import React, { useContext } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import AppContext from '@context/AppContext';
 import addToCartImage from '@icons/bt_add_to_cart.svg';
 import addedToCartImage from '@icons/bt_added_to_cart.svg';
 import Link from 'next/link';
 import placeholder from 'assets/icons/placeholder.jpg';
+import useAuth from '@hooks/useAuth';
 import styles from '@styles/components/ProductItem.module.scss';
 
 
 
 const ProductItem = ({ product }) => {
 	const { state, addToCart } = useContext(AppContext);
-
+	const auth = useAuth();
+	const router = useRouter();
 	const handleClick = (item) => {
-		console.log('in cart: ', state.cart.includes(item));
+		if (auth.user) {
+			console.log('in cart: ', state.cart.includes(item));
 		addToCart(item);
+		} else {
+			router.push('/login');
+		}
 	};
 
+	// --
 	return (
 		<div className={styles.ProductItem}>
 			{product.images[0]

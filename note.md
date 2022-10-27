@@ -1494,7 +1494,18 @@ export { CategoryProducts };
 
 ```
 
-=== PENDIENTES ===
+# Validator Login
 
-2.  Mejorar la pagina de los productos
-3.  Mejorar el enrutado login-home
+- Se agrego la siguiente logica al handleClick del `ProductItem`:
+- /src/components/ProductItem
+
+```
+const handleClick = (item) => {
+		if (auth.user) {
+			console.log('in cart: ', state.cart.includes(item));
+		addToCart(item);
+		} else {
+			router.push('/login');
+		}
+	};
+```
