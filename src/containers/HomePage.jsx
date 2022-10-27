@@ -5,12 +5,12 @@ import ProductList from './ProductList';
 import styles from '../styles/containers/HomePage.module.scss';
 
 const HomePage = () => {
-    const [product, setProduct] = useState({});
+    const [products, setProducts] = useState({});
     useEffect(() => {
-        fetch(`https://api.escuelajs.co/api/v1/products/14`)
+        fetch(`https://api.escuelajs.co/api/v1/products?limit=2&offset=2`)
             .then((response) => response.json())
             .then((data) => {
-                setProduct(data);
+                setProducts(data);
             })
             .catch((err) => {
                 console.log('error :' + err);
@@ -21,34 +21,53 @@ const HomePage = () => {
     return (
         <section className={styles.Home}>
             <p className={styles['Home-h2']}>Trending:</p>
-            {JSON.stringify(product) == '{}'
+            {JSON.stringify(products) == '{}'
                 ? <></>
                 :
                 <section className={styles['Home-Wrapped-Banner']}>
-                    <Link href={`/product/${product.id}`} >
+                    <Link href={`/product/${products[0].id}`} >
                         <div className={styles['Home-Banner']}>
-                            {product.images[0] &&
+                            {products[0].images[0] &&
                                 <Image
-                                    src={product.images[0]}
+                                    src={products[0].images[0]}
                                     height={105}
                                     width={115}
-                                    alt={product.title}
-                                    loader={() => product.images[0]}
+                                    alt={products[0].title}
+                                    loader={() => products[0].images[0]}
                                     unoptimized={true}
 
                                 />}
                             <div className={styles['Home-Banner-Content']}>
-                                <span>{product?.title}</span>
-                                <p>{product?.description}</p>
-                                <span>{product?.price}$</span>
+                                <span>{products[0]?.title}</span>
+                                <p>{products[0]?.description}</p>
+                                <span>{products[0]?.price}$</span>
                             </div>
 
                         </div>
                     </Link>
+                    <Link href={`/product/${products[1].id}`} >
+                        <div className={styles['Home-Banner']}>
+                            {products[1].images[0] &&
+                                <Image
+                                    src={products[1].images[0]}
+                                    height={105}
+                                    width={115}
+                                    alt={products[1].title}
+                                    loader={() => products.images[0]}
+                                    unoptimized={true}
 
+                                />}
+                            <div className={styles['Home-Banner-Content']}>
+                                <span>{products[1]?.title}</span>
+                                <p>{products[1]?.description}</p>
+                                <span>{products[1]?.price}$</span>
+                            </div>
+
+                        </div>
+                    </Link>
                 </section>
             }
-            <ProductList />
+            <ProductList data-aos="fade-up"/>
         </section >
     )
 }

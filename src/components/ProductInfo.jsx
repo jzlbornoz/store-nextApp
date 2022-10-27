@@ -53,7 +53,11 @@ const ProductInfo = ({ id }) => {
 						Add to cart
 					</button>
 
-					<div className={product.price ? styles.Exit : styles['Exit-Skeleton']}><Link href="/">Back</Link></div>
+					<div className={product.price ? styles.Exit : styles['Exit-Skeleton']}>
+					<Link href="/" >
+						<p>Back</p>
+					</Link>
+					</div>
 				</div>
 
 			</div>

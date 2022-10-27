@@ -38,7 +38,7 @@ const ProductList = () => {
 				<Alert alert={alert} handleClose={togleAlert} />
 				<section className={styles.ProductList}>
 					{filteredProducts.map((product) => (
-						<ProductItem product={product} key={product.id} setAlert={setAlert} />
+						<ProductItem product={product} key={product.id} setAlert={setAlert}/>
 					))}
 				</section>
 			</section>
