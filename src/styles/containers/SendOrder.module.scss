@@ -5,12 +5,17 @@
 	height: 100vh;
 	display: grid;
 	place-items: center;
+	background-color: $--green;
 }
 .form-container {
 	display: grid;
 	grid-template-rows: auto 1fr auto;
 	width: 300px;
 	justify-items: center;
+	background-color: $--white;
+	border-radius: 7px;
+	border: solid 1px $--very-light-pink;
+	box-shadow: 0px 10px 25px -3px rgba(0, 0, 0, 0.318);
 }
 .logo {
 	width: 150px;

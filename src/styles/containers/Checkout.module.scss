@@ -2,10 +2,11 @@
 
 .Checkout {
 	width: 100%;
-	min-height: 85vh;
+	min-height: 90vh;
 	display: grid;
-	place-items: center;
-	margin-top: 12vh;
+	place-items: start center;
+	margin-top: 10vh;
+	background-color: $--green;
 }
 .title {
 	font-size: $--lg;
@@ -14,7 +15,13 @@
 .Checkout-container {
 	display: grid;
 	grid-template-rows: auto 1fr auto;
-	width: 300px;
+	width: 75vw;
+	background-color: $--white;
+	padding: 7px;
+	border-radius: 7px;
+	box-shadow: 0px 10px 25px -3px rgba(0, 0, 0, 0.318);
+	border: 1px solid $--very-light-pink;
+	margin-top: 5vh;
 }
 .Checkout-content {
 	display: flex;
