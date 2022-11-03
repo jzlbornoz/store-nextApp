@@ -2,16 +2,15 @@
 
 .MyAccount {
 	width: 100%;
+	margin-top: 11vh;
+}
+.title {
+	padding: 15px;
+	font-size: 24px;
 }
 .MyAccount-container {
 	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	padding: 50px;
-}
-
-.MyAccount-container img{
-	margin-bottom: 30vh;
+	justify-content: space-evenly
 }
 
 .logo {
@@ -20,14 +19,11 @@
 	justify-self: center;
 	display: none;
 }
-.title {
-	font-size: $--lg;
-	margin-bottom: 36px;
-	text-align: start;
-}
 .form {
 	display: flex;
 	flex-direction: column;
+	width: 70vw;
+	padding: 10px;
 }
 .form div {
 	display: flex;
@@ -44,12 +40,20 @@
 	font-size: $--md;
 	margin: 8px 0 32px 0;
 }
+.MyAccount-buttons{
+	display: flex;
+	justify-content: space-around;
+}
+.MyAccount-buttons input:hover , .MyAccount-buttons button:hover {
+	background: none;
+	color: $--hospital-green;
+}
 .secondary-button{
 	background-color: $--hospital-green;
 	border-radius: 8px;
 	border: 1px solid $--hospital-green;
 	color: $--white;
-	width: 100%;
+	width: 25vw;
 	cursor: pointer;
 	font-size: $--md;
 	font-weight: bold;
@@ -63,11 +67,19 @@
 	margin-bottom: 30px;
 }
 @media (max-width: 640px) {
-	.form-container {
-		height: 100%;
+	.MyAccount-container{
+		flex-direction: column;
+	}
+	.form{
+		width: 100vw;
 	}
 	.avatar{
-		display: none;
+		display: flex;
+		justify-content: center;
+	}
+	.MyAccount-container img{
+		border-radius: 70%;
+		
 	}
 	.form {
 		height: 100%;

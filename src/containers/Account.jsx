@@ -8,15 +8,17 @@ const Account = () => {
     const auth = useAuth();
     return (
         <div className={styles.MyAccount}>
+            <h2 className={styles.title}>My account</h2>
             <div className={styles['MyAccount-container']}>
-                <h1 className={styles.title}>My account</h1>
-                <Image src={auth?.user?.avatar}
-                    height={300}
-                    width={300}
-                    className={styles.avatar}
-                    alt={auth?.user?.name} 
+                <div className={styles.avatar}>
+                    <Image src={auth?.user?.avatar}
+                        height={270}
+                        width={270}
+                        className={styles.avatar}
+                        alt={auth?.user?.name}
 
                     />
+                </div>
                 <form action="/" className={styles.form}>
                     <div>
                         <label htmlFor="name" className={styles.label}>
@@ -32,9 +34,11 @@ const Account = () => {
                         </label>
                         <p className={styles.value}>*********</p>
                     </div>
-                    <input type="submit" value="Edit" className={styles['secondary-button']} />
-                    <Link href='/' ><button className={styles['secondary-button']}>Exit</button></Link>
                 </form>
+            </div>
+            <div className={styles['MyAccount-buttons']}>
+                <input type="submit" value="Edit" className={styles['secondary-button']} />
+                <Link href='/' ><button className={styles['secondary-button']}>Exit</button></Link>
             </div>
         </div>
     )
